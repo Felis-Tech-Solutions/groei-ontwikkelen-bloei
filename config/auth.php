@@ -97,6 +97,13 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+        'activations' => [
+            'provider' => 'users',
+            'table' => 'password_activation_tokens',
+            'expire' => 4320,
+            'throttle' => 60,
+        ],
+        'password' => env('AUTH_USER_PASSWORD', 'password'),
     ],
 
     /*
