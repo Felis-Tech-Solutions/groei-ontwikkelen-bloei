@@ -56,11 +56,6 @@ services:
             MYSQL_PASSWORD: gob
         ports:
             - "127.0.0.1:34969:3306"
-    redis:
-        image: redis:4-alpine
-        container_name: gob-redis
-        volumes:
-            - redis:/data
 
 #  mailhog:
 #    image: mailhog/mailhog
@@ -79,8 +74,7 @@ services:
 volumes:
     mariadb:
         driver: local
-    redis:
-        driver: local
+
 
 # Make the externally created network "traefik-gateway" available as network "default"
 # docker network create traefik-gateway

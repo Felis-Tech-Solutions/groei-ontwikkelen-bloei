@@ -8,6 +8,8 @@ return new class extends Migration
 {
     public function up()
     {
+        Schema::dropIfExists($this->prefix('sites'));
+
         Schema::create($this->prefix('sites'), function (Blueprint $table) {
             $table->id();
             $table->string('handle')->unique();

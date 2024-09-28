@@ -8,8 +8,8 @@
         "php": "^8.2",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
-        "statamic/cms": "^5.25",
-        "statamic/eloquent-driver": "^4.14"
+        "statamic/cms": "*",
+        "statamic/eloquent-driver": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -37,8 +37,7 @@
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi",
-            "@php artisan statamic:install --ansi"
+            "@php artisan package:discover --ansi"
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"

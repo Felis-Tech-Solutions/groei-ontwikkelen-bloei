@@ -36,7 +36,7 @@ RUN usermod -s /bin/sh -g ${BUILD_GID} -u ${BUILD_UID} www-data
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
 RUN chmod uga+x /usr/local/bin/install-php-extensions && sync && \
-    install-php-extensions mcrypt redis pdo_mysql opcache gd zip exif bcmath
+    install-php-extensions mcrypt pdo_mysql opcache gd zip exif bcmath
 
 RUN apk update && \
     apk add mysql-client

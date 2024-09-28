@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="{{ site:short_locale }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {{ vite src="resources/js/app.js|resources/css/app.css" }}
+        {{ turnstile:script }}
+        {{ aardvark-seo:head }}
+    </head>
+    <body class="font-running-text antialiased">
+    {{ aardvark-seo:body }}
+        <main id="app">
+            <nav class="w-full z-50 py-2.5 md:py-5 bg-white md:bg-transparent shadow md:shadow-none rounded-b md:rounded-none md:absolute" id="js-navigation">
+                <div class="container px-4 xl:px-0">
+                    <div class="w-full lg:w-10/12 4xl:w-6/12 mx-auto flex justify-between items-center">
+                        <a href="{{ link id='home' }}" title="Terug naar de homepagina">
+                            <svg class="w-10 md:w-14 h-auto md:hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><defs><clipPath id="a"><path d="M0 0h30v30H0z" style="fill:none"/></clipPath></defs><g style="clip-path:url(#a);fill:none"><path d="M15 30C6.72 30 0 23.28 0 15S6.72 0 15 0s15 6.72 15 15c-.01 8.28-6.72 14.99-15 15Zm0-28.36C7.62 1.64 1.64 7.62 1.64 15S7.62 28.36 15 28.36 28.36 22.38 28.36 15c0-7.38-5.99-13.36-13.36-13.36Z" style="fill:#0e1e26"/><path d="M13.9 7.3c.49 0 .99.05 1.47.16.35.08.7.18 1.03.32l-.55 2.27c-.27-.12-.54-.21-.83-.26-.27-.05-.55-.08-.83-.09-.3 0-.59.04-.87.14-.21.08-.4.22-.55.39-.14.17-.24.38-.29.59-.06.24-.08.49-.08.74v.49h3.51v2.37H12.4v7.67H9.55V11.51c0-1.3.37-2.33 1.1-3.09.73-.76 1.82-1.15 3.26-1.15Zm4.87 13.31c0 .57-.18 1.01-.54 1.31-.71.6-1.75.6-2.46 0-.36-.3-.55-.74-.55-1.31s.18-1.01.55-1.31c.71-.6 1.75-.6 2.46 0 .36.31.55.74.54 1.31Z" style="fill:#0e1e26"/></g></svg>
+                            <svg class="hidden md:block w-32 h-auto" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 195.87 49.26"><path d="M14.21 0a18.07 18.07 0 0 1 4.34.44 20.84 20.84 0 0 1 2.9.93l-1.63 7.3A9.46 9.46 0 0 0 17.61 8a16.87 16.87 0 0 0-2.46-.18 7.63 7.63 0 0 0-2.84.46 4.2 4.2 0 0 0-1.8 1.25 5 5 0 0 0-.94 2A10 10 0 0 0 9.29 14v1.57h11.47v7.72H9.29v25.08H0V13.84q0-6.36 3.59-10.1T14.21 0Zm25.06 49a23.91 23.91 0 0 1-6.57-.87 9.7 9.7 0 0 1-4-2.28 7.59 7.59 0 0 1-2-3.55 19.33 19.33 0 0 1-.52-4.73V1.5L35.47 0v35.72a11.24 11.24 0 0 0 .19 2.28 3.9 3.9 0 0 0 .71 1.69 4 4 0 0 0 1.56 1.12 8.49 8.49 0 0 0 2.68.56ZM75 31.92A21.27 21.27 0 0 1 73.87 39a15.59 15.59 0 0 1-3.24 5.49A14.69 14.69 0 0 1 65.55 48a18.07 18.07 0 0 1-13.22 0 14.6 14.6 0 0 1-5.08-3.52A16.26 16.26 0 0 1 43.93 39a20.28 20.28 0 0 1-1.19-7.07 19.66 19.66 0 0 1 1.22-7 15.9 15.9 0 0 1 3.37-5.42A14.82 14.82 0 0 1 52.44 16a17.4 17.4 0 0 1 13 0 14.7 14.7 0 0 1 5.08 3.49 15.69 15.69 0 0 1 3.31 5.42A20.13 20.13 0 0 1 75 31.92Zm-9.47 0a11.69 11.69 0 0 0-1.72-6.77 5.6 5.6 0 0 0-4.87-2.46A5.7 5.7 0 0 0 54 25.15a11.61 11.61 0 0 0-1.74 6.77A11.85 11.85 0 0 0 54 38.74a5.64 5.64 0 0 0 4.93 2.53 5.56 5.56 0 0 0 4.89-2.53 12 12 0 0 0 1.7-6.82Zm45.74 0a21.27 21.27 0 0 1-1.12 7.08 15.54 15.54 0 0 1-3.22 5.49 14.69 14.69 0 0 1-5.08 3.51 18.1 18.1 0 0 1-13.22 0 14.6 14.6 0 0 1-5.08-3.52 16.21 16.21 0 0 1-3.3-5.48 20.28 20.28 0 0 1-1.19-7.07 19.66 19.66 0 0 1 1.22-7 16 16 0 0 1 3.36-5.42A15.09 15.09 0 0 1 88.76 16a17.4 17.4 0 0 1 13 0 14.7 14.7 0 0 1 5.08 3.49 15.93 15.93 0 0 1 3.31 5.42 19.87 19.87 0 0 1 1.12 7.01Zm-9.47 0a11.69 11.69 0 0 0-1.72-6.77 5.58 5.58 0 0 0-4.89-2.46 5.7 5.7 0 0 0-4.93 2.46 11.61 11.61 0 0 0-1.74 6.77 11.85 11.85 0 0 0 1.74 6.82 5.64 5.64 0 0 0 4.93 2.53 5.56 5.56 0 0 0 4.89-2.53 12 12 0 0 0 1.72-6.82Zm34.84-8.11c-.83-.2-1.81-.42-2.93-.65A17.3 17.3 0 0 0 128 23a14.2 14.2 0 0 0-1.84.34v25.03h-9.24v-31a54.74 54.74 0 0 1 5.89-1.65 34.44 34.44 0 0 1 7.57-.78 13.61 13.61 0 0 1 1.81.09c.7.09 1.41.15 2.12.25s1.41.23 2.12.38a9.4 9.4 0 0 1 1.81.53Zm15.15-17.7a5.09 5.09 0 0 1-1.65 4 5.91 5.91 0 0 1-7.8 0 5.09 5.09 0 0 1-1.65-4 5.09 5.09 0 0 1 1.65-4 5.91 5.91 0 0 1 7.8 0 5.09 5.09 0 0 1 1.65 4Zm-.86 42.26h-9.3v-32.8h9.3Zm16.57-6.67a9.43 9.43 0 0 0 3.61-.49 1.94 1.94 0 0 0 1.06-1.94 2.37 2.37 0 0 0-1.37-2 26.67 26.67 0 0 0-4.18-1.9 40.42 40.42 0 0 1-4-1.69 11.51 11.51 0 0 1-3-2.08 8.47 8.47 0 0 1-1.93-2.9 10.57 10.57 0 0 1-.69-4.05 8.76 8.76 0 0 1 3.43-7.3q3.44-2.67 9.41-2.68a29.84 29.84 0 0 1 5.74.53 26.91 26.91 0 0 1 4.3 1.2l-1.62 7.23a32.85 32.85 0 0 0-3.52-1 19.11 19.11 0 0 0-4.27-.44c-2.91 0-4.37.81-4.36 2.43a2.46 2.46 0 0 0 .18 1 2.17 2.17 0 0 0 .75.84 10.11 10.11 0 0 0 1.53.88 21.62 21.62 0 0 0 2.46 1 36.63 36.63 0 0 1 5 2.23 12 12 0 0 1 3.15 2.37 7.35 7.35 0 0 1 1.7 2.87 12.56 12.56 0 0 1 .47 3.61 8.32 8.32 0 0 1-3.65 7.34q-3.65 2.49-10.32 2.49a28.79 28.79 0 0 1-11.26-2l1.56-7.54a30.53 30.53 0 0 0 4.86 1.46 23.14 23.14 0 0 0 4.96.53Zm28.36 1.75a5.2 5.2 0 0 1-1.78 4.27 6.25 6.25 0 0 1-8 0 5.26 5.26 0 0 1-1.78-4.27 5.26 5.26 0 0 1 1.78-4.27 6.23 6.23 0 0 1 8 0 5.2 5.2 0 0 1 1.78 4.27Z" style="fill:#fff"/></svg>
+                        </a>
+                        <div class="flex items-center space-x-5">
+                            <navigation-menu :nav-items="{{ nav as='nav-item' include_home="true" sort="order" }}{{ nav-item | to_json | entities }} {{/nav }}"></navigation-menu>
+                            <a href="{{ link id="f13b0cf3-71a3-4c9d-b6de-a95f71f46730" }}" title="Kom in contact" class="hidden md:flex border-2 border-white uppercase px-5 py-3 bg-white text-blue-900 max-w-max rounded-md font-bold items-center space-x-5 hover:bg-transparent group hover:text-white focus:ring-1 active:ring-1 active:ring-red-900 focus:ring-red-900 transition duration-300 ease-in"><span>contact</span><svg class="stroke-current text-blue-900 group-hover:text-white transition duration-300 ease-in" xmlns="http://www.w3.org/2000/svg" width="12" height="10" fill="none"><path stroke-linecap="round" stroke-linejoin="round" d="M6.833.625 11 5m0 0L6.833 9.375M11 5H1"></path></svg></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            {{ template_content }}
+            <footer class="bg-blue-900 py-16 bg-red-stripes-faded bg-cover bg-no-repeat bg-[center_right_-80rem]">
+                <div class="container px-4 xl:px-0">
+                    <div class="w-full lg:w-10/12 4xl:w-6/12 mx-auto grid grid-cols-1 lg:grid-cols-10 space-y-5 xl:space-y-0">
+                        <div class="col-span-1 lg:col-span-3 xl:col-span-2 pb-5">
+                            <div class="w-52 mb-6">
+                                <a href="{{ link id='home' }}" title="Terug naar de homepagina">
+                                    <svg class=" h-auto" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 195.87 49.26"><path d="M14.21 0a18.07 18.07 0 0 1 4.34.44 20.84 20.84 0 0 1 2.9.93l-1.63 7.3A9.46 9.46 0 0 0 17.61 8a16.87 16.87 0 0 0-2.46-.18 7.63 7.63 0 0 0-2.84.46 4.2 4.2 0 0 0-1.8 1.25 5 5 0 0 0-.94 2A10 10 0 0 0 9.29 14v1.57h11.47v7.72H9.29v25.08H0V13.84q0-6.36 3.59-10.1T14.21 0Zm25.06 49a23.91 23.91 0 0 1-6.57-.87 9.7 9.7 0 0 1-4-2.28 7.59 7.59 0 0 1-2-3.55 19.33 19.33 0 0 1-.52-4.73V1.5L35.47 0v35.72a11.24 11.24 0 0 0 .19 2.28 3.9 3.9 0 0 0 .71 1.69 4 4 0 0 0 1.56 1.12 8.49 8.49 0 0 0 2.68.56ZM75 31.92A21.27 21.27 0 0 1 73.87 39a15.59 15.59 0 0 1-3.24 5.49A14.69 14.69 0 0 1 65.55 48a18.07 18.07 0 0 1-13.22 0 14.6 14.6 0 0 1-5.08-3.52A16.26 16.26 0 0 1 43.93 39a20.28 20.28 0 0 1-1.19-7.07 19.66 19.66 0 0 1 1.22-7 15.9 15.9 0 0 1 3.37-5.42A14.82 14.82 0 0 1 52.44 16a17.4 17.4 0 0 1 13 0 14.7 14.7 0 0 1 5.08 3.49 15.69 15.69 0 0 1 3.31 5.42A20.13 20.13 0 0 1 75 31.92Zm-9.47 0a11.69 11.69 0 0 0-1.72-6.77 5.6 5.6 0 0 0-4.87-2.46A5.7 5.7 0 0 0 54 25.15a11.61 11.61 0 0 0-1.74 6.77A11.85 11.85 0 0 0 54 38.74a5.64 5.64 0 0 0 4.93 2.53 5.56 5.56 0 0 0 4.89-2.53 12 12 0 0 0 1.7-6.82Zm45.74 0a21.27 21.27 0 0 1-1.12 7.08 15.54 15.54 0 0 1-3.22 5.49 14.69 14.69 0 0 1-5.08 3.51 18.1 18.1 0 0 1-13.22 0 14.6 14.6 0 0 1-5.08-3.52 16.21 16.21 0 0 1-3.3-5.48 20.28 20.28 0 0 1-1.19-7.07 19.66 19.66 0 0 1 1.22-7 16 16 0 0 1 3.36-5.42A15.09 15.09 0 0 1 88.76 16a17.4 17.4 0 0 1 13 0 14.7 14.7 0 0 1 5.08 3.49 15.93 15.93 0 0 1 3.31 5.42 19.87 19.87 0 0 1 1.12 7.01Zm-9.47 0a11.69 11.69 0 0 0-1.72-6.77 5.58 5.58 0 0 0-4.89-2.46 5.7 5.7 0 0 0-4.93 2.46 11.61 11.61 0 0 0-1.74 6.77 11.85 11.85 0 0 0 1.74 6.82 5.64 5.64 0 0 0 4.93 2.53 5.56 5.56 0 0 0 4.89-2.53 12 12 0 0 0 1.72-6.82Zm34.84-8.11c-.83-.2-1.81-.42-2.93-.65A17.3 17.3 0 0 0 128 23a14.2 14.2 0 0 0-1.84.34v25.03h-9.24v-31a54.74 54.74 0 0 1 5.89-1.65 34.44 34.44 0 0 1 7.57-.78 13.61 13.61 0 0 1 1.81.09c.7.09 1.41.15 2.12.25s1.41.23 2.12.38a9.4 9.4 0 0 1 1.81.53Zm15.15-17.7a5.09 5.09 0 0 1-1.65 4 5.91 5.91 0 0 1-7.8 0 5.09 5.09 0 0 1-1.65-4 5.09 5.09 0 0 1 1.65-4 5.91 5.91 0 0 1 7.8 0 5.09 5.09 0 0 1 1.65 4Zm-.86 42.26h-9.3v-32.8h9.3Zm16.57-6.67a9.43 9.43 0 0 0 3.61-.49 1.94 1.94 0 0 0 1.06-1.94 2.37 2.37 0 0 0-1.37-2 26.67 26.67 0 0 0-4.18-1.9 40.42 40.42 0 0 1-4-1.69 11.51 11.51 0 0 1-3-2.08 8.47 8.47 0 0 1-1.93-2.9 10.57 10.57 0 0 1-.69-4.05 8.76 8.76 0 0 1 3.43-7.3q3.44-2.67 9.41-2.68a29.84 29.84 0 0 1 5.74.53 26.91 26.91 0 0 1 4.3 1.2l-1.62 7.23a32.85 32.85 0 0 0-3.52-1 19.11 19.11 0 0 0-4.27-.44c-2.91 0-4.37.81-4.36 2.43a2.46 2.46 0 0 0 .18 1 2.17 2.17 0 0 0 .75.84 10.11 10.11 0 0 0 1.53.88 21.62 21.62 0 0 0 2.46 1 36.63 36.63 0 0 1 5 2.23 12 12 0 0 1 3.15 2.37 7.35 7.35 0 0 1 1.7 2.87 12.56 12.56 0 0 1 .47 3.61 8.32 8.32 0 0 1-3.65 7.34q-3.65 2.49-10.32 2.49a28.79 28.79 0 0 1-11.26-2l1.56-7.54a30.53 30.53 0 0 0 4.86 1.46 23.14 23.14 0 0 0 4.96.53Zm28.36 1.75a5.2 5.2 0 0 1-1.78 4.27 6.25 6.25 0 0 1-8 0 5.26 5.26 0 0 1-1.78-4.27 5.26 5.26 0 0 1 1.78-4.27 6.23 6.23 0 0 1 8 0 5.2 5.2 0 0 1 1.78 4.27Z" style="fill:#fff"/></svg>
+                                </a>
+                            </div>
+                            <div class="flex space-x-3">
+                                {{ if general:facebook }}
+                                <a href="{{ general:facebook }}" class="group" title="Bekijk de Facebook van flooris B.V." target="_blank">
+                                    <svg class="w-7 h-7 fill-current text-white group-hover:cursor-pointer group-hover:brightness-90 transition duration-300 ease-in" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"/></svg>
+                                </a>
+                                {{ /if }}
+                                {{ if general:linkedin }}
+                                <a href="{{ general:linkedin }}" class="group" title="Bekijk de LinkedIn van flooris B.V." target="_blank">
+                                    <svg class="w-7 h-7 fill-current text-white group-hover:cursor-pointer group-hover:brightness-90 transition duration-300 ease-in" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+                                </a>
+                                {{ /if }}
+                                {{ if general:instagram }}
+                                <a href="{{ general:instagram }}" class="group" title="Bekijk de Instagram van flooris B.V." target="_blank">
+                                    <svg class="w-7 h-7 fill-current text-white group-hover:cursor-pointer group-hover:brightness-90 transition duration-300 ease-in" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M224,202.66A53.34,53.34,0,1,0,277.36,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.41-30.41c-21-8.29-71-6.43-94.3-6.43s-73.25-1.93-94.31,6.43a54,54,0,0,0-30.41,30.41c-8.28,21-6.43,71.05-6.43,94.33S91,329.26,99.32,350.33a54,54,0,0,0,30.41,30.41c21,8.29,71,6.43,94.31,6.43s73.24,1.93,94.3-6.43a54,54,0,0,0,30.41-30.41c8.35-21,6.43-71.05,6.43-94.33S357.1,182.74,348.75,161.67ZM224,338a82,82,0,1,1,82-82A81.9,81.9,0,0,1,224,338Zm85.38-148.3a19.14,19.14,0,1,1,19.13-19.14A19.1,19.1,0,0,1,309.42,189.74ZM400,32H48A48,48,0,0,0,0,80V432a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V80A48,48,0,0,0,400,32ZM382.88,322c-1.29,25.63-7.14,48.34-25.85,67s-41.4,24.63-67,25.85c-26.41,1.49-105.59,1.49-132,0-25.63-1.29-48.26-7.15-67-25.85s-24.63-41.42-25.85-67c-1.49-26.42-1.49-105.61,0-132,1.29-25.63,7.07-48.34,25.85-67s41.47-24.56,67-25.78c26.41-1.49,105.59-1.49,132,0,25.63,1.29,48.33,7.15,67,25.85s24.63,41.42,25.85,67.05C384.37,216.44,384.37,295.56,382.88,322Z"/></svg>
+                                </a>
+                                {{ /if }}
+                                {{ if general:github }}
+                                <a href="{{ general:github }}" class="group" title="Bekijk de Github van flooris B.V." target="_blank">
+                                    <svg class="w-7 h-7 fill-current text-white group-hover:cursor-pointer group-hover:brightness-90 transition duration-300 ease-in" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM277.3 415.7c-8.4 1.5-11.5-3.7-11.5-8 0-5.4.2-33 .2-55.3 0-15.6-5.2-25.5-11.3-30.7 37-4.1 76-9.2 76-73.1 0-18.2-6.5-27.3-17.1-39 1.7-4.3 7.4-22-1.7-45-13.9-4.3-45.7 17.9-45.7 17.9-13.2-3.7-27.5-5.6-41.6-5.6-14.1 0-28.4 1.9-41.6 5.6 0 0-31.8-22.2-45.7-17.9-9.1 22.9-3.5 40.6-1.7 45-10.6 11.7-15.6 20.8-15.6 39 0 63.6 37.3 69 74.3 73.1-4.8 4.3-9.1 11.7-10.6 22.3-9.5 4.3-33.8 11.7-48.3-13.9-9.1-15.8-25.5-17.1-25.5-17.1-16.2-.2-1.1 10.2-1.1 10.2 10.8 5 18.4 24.2 18.4 24.2 9.7 29.7 56.1 19.7 56.1 19.7 0 13.9.2 36.5.2 40.6 0 4.3-3 9.5-11.5 8-66-22.1-112.2-84.9-112.2-158.3 0-91.8 70.2-161.5 162-161.5S388 165.6 388 257.4c.1 73.4-44.7 136.3-110.7 158.3zm-98.1-61.1c-1.9.4-3.7-.4-3.9-1.7-.2-1.5 1.1-2.8 3-3.2 1.9-.2 3.7.6 3.9 1.9.3 1.3-1 2.6-3 3zm-9.5-.9c0 1.3-1.5 2.4-3.5 2.4-2.2.2-3.7-.9-3.7-2.4 0-1.3 1.5-2.4 3.5-2.4 1.9-.2 3.7.9 3.7 2.4zm-13.7-1.1c-.4 1.3-2.4 1.9-4.1 1.3-1.9-.4-3.2-1.9-2.8-3.2.4-1.3 2.4-1.9 4.1-1.5 2 .6 3.3 2.1 2.8 3.4zm-12.3-5.4c-.9 1.1-2.8.9-4.3-.6-1.5-1.3-1.9-3.2-.9-4.1.9-1.1 2.8-.9 4.3.6 1.3 1.3 1.8 3.3.9 4.1zm-9.1-9.1c-.9.6-2.6 0-3.7-1.5s-1.1-3.2 0-3.9c1.1-.9 2.8-.2 3.7 1.3 1.1 1.5 1.1 3.3 0 4.1zm-6.5-9.7c-.9.9-2.4.4-3.5-.6-1.1-1.3-1.3-2.8-.4-3.5.9-.9 2.4-.4 3.5.6 1.1 1.3 1.3 2.8.4 3.5zm-6.7-7.4c-.4.9-1.7 1.1-2.8.4-1.3-.6-1.9-1.7-1.5-2.6.4-.6 1.5-.9 2.8-.4 1.3.7 1.9 1.8 1.5 2.6z"/></svg>
+                                </a>
+                                {{ /if }}
+                            </div>
+                        </div>
+                        <div class="col-span-1 lg:col-span-3 xl:col-span-2 pb-5">
+                            <ul class="text-white space-y-3">
+                                <li>
+                                    <a href="tel:{{ general:phonenumber_unformatted }}"title="Bel naar {{ general:phonenumber_formatted }}">
+                                        <span>{{ general:phonenumber_formatted }}</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="mailto:{{ general:emailadress }}" title="Mail naar {{ general:emailadress }}">
+                                        <span>{{ general:emailadress }}</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <span>{{ general:address }}</span>
+                                </li>
+                                <li>
+                                    <span>Woerden, {{ general:zipcode }}</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-span-1 lg:col-span-10 xl:col-span-6 pb-5">
+                            <ul class="flex md:space-x-5 xl:justify-end text-white flex-col md:flex-row space-y-3 md:space-y-0">
+                                {{ nav include_home="true" sort="order" }}
+                                <li><a href="{{ url }}" title="{{ title }}">{{ title }}</a></li>
+                                {{ /nav }}
+                            </ul>
+                        </div>
+                        <div class="col-span-1 lg:col-span-10 py-5 border-t border-white flex justify-between">
+                            <ul class="flex space-x-3 md:space-x-5 items-center text-white text-xs">
+                                <li>
+                                    <a href="/assets/2023-algemene-voorwaarden-flooris-bv.pdf" title="Lees de algemene voorwaarden" target="_blank">Algemene voorwaarden</a>
+                                </li>
+                            </ul>
+                            <span class="text-white text-xs">
+                                &#169;
+                                {{ date format="Y" }}
+                                {{ site:name }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+        {{ aardvark-seo:footer }}
+    </body>
+</html>
