@@ -8,15 +8,12 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
-<body>
+<body class="bg-gob-bg">
 @include('partials.nav')
 <div class="container mx-auto">
-
 @yield('content')
-
-
         @yield('aboutus')
-        @include('partials.footer')
     </div>
 </body>
+@include('partials.footer')
 </html>

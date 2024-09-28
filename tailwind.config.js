@@ -12,6 +12,7 @@ export default {
       colors: {
         'gob-blue': '#59A4B7',
         'gob-brown':'#674636',
+        'gob-bg':'#FFF8E8',
       },
     },
   },
