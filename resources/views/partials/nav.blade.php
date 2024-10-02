@@ -6,8 +6,8 @@
         <nav class="max-w-7xl mx-auto flex items-center justify-between p-6 lg:px-8" aria-label="Global">
             <div class="flex lg:flex-1">
                 <a href="#" class="-m-1.5 p-1.5">
-                    <span class="sr-only">Your Company</span>
-                    <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company Logo">
+                    <span class="sr-only">Groeiontwikkelenbloei</span>
+                    <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Groeiontwikkelenbloei">
                 </a>
             </div>
 
@@ -85,7 +85,10 @@
 
         <!-- Rechter sectie: Afbeelding -->
         <div class="md:w-1/2 mt-10 md:mt-0">
-            <img src="jouw-afbeelding-url.jpg" alt="Afbeelding beschrijving" class="w-full h-auto object-cover">
+
+@dump($data))
+
+            <img src="{{$data->get('header_image')}}" alt="Afbeelding beschrijving" class="w-full h-auto object-cover">
         </div>
     </div>
 

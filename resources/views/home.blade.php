@@ -10,11 +10,12 @@
 @section('aboutus')
 <div class="px-6 py-32 lg:px-8">
   <div class="mx-auto max-w-3xl text-base leading-7 text-gray-700">
-    <p class="text-base font-semibold leading-7 text-indigo-600">Wie ben ik</p>
+    <p class="text-base font-semibold leading-7 text-pink-300">Wie ben ik</p>
     <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Susanne Feer</h1>
     <p class="mt-6 text-xl leading-8">Aliquet nec orci mattis amet quisque ullamcorper neque, nibh sem. At arcu, sit dui mi, nibh dui, diam eget aliquam. Quisque id at vitae feugiat egestas ac. Diam nulla orci at in viverra scelerisque eget. Eleifend egestas fringilla sapien.</p>
     <div class="mt-10 max-w-2xl">
       <p>Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id.</p>
+</div>
 </div>
 
 <div class="py-24 sm:py-32">
@@ -22,20 +23,20 @@
     <div class="mx-auto max-w-2xl lg:mx-0">
       <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Diensten</h2>
     </div>
-    <ul role="list" class="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-      <li>
+    <ul role="list" class="gap-x-8 grid lg:grid-cols-3 lg:mx-0 mx-auto p-6 rounded-lg sm:grid-cols-2">
+      <li class="bg-pink-300 p-6 rounded-lg">
         <p class="mt-6 text-lg leading-8 text-gray-600"> Rouw & verlies</p>
         <img class="aspect-[3/2] w-full rounded-2xl object-cover" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="">
         <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">Lindsay Walton</h3>
         <p class="text-base leading-7 text-gray-600">Front-end Developer</p>
       </li>
-      <li>
+      <li class="bg-pink-300 p-6 rounded-lg">
         <p class="mt-6 text-lg leading-8 text-gray-600"> Rouw & verlies</p>
         <img class="aspect-[3/2] w-full rounded-2xl object-cover" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="">
         <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">Lindsay Walton</h3>
         <p class="text-base leading-7 text-gray-600">Front-end Developer</p>
       </li>
-      <li>
+      <li class="bg-pink-300 p-6 rounded-lg">
         <p class="mt-6 text-lg leading-8 text-gray-600"> Rouw & verlies</p>
         <img class="aspect-[3/2] w-full rounded-2xl object-cover" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="">
         <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">Lindsay Walton</h3>
@@ -48,19 +49,10 @@
 </div>
 
 <section class="w-full px-6 py-24 sm:py-32 lg:px-8">
-  <div class="max-w-2xl mx-auto">
     <div id="testimonial-slider" class="relative overflow-hidden">
       <div class="flex transition-transform duration-300" id="slides">
         <!-- Testimonial 1 -->
         <figure class="w-full flex-shrink-0">
-          <p class="sr-only">5 out of 5 stars</p>
-          <div class="flex gap-x-1 text-indigo-600">
-            <!-- Star icons (use SVGs as in your original code) -->
-            <svg class="h-5 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" />
-            </svg>
-            <!-- Add more stars as needed -->
-          </div>
           <blockquote class="mt-10 text-xl font-semibold leading-8 tracking-tight text-gray-900 sm:text-2xl sm:leading-9">
             <p>“Qui dolor enim consectetur do et non ex amet culpa sint in ea non dolore. Enim minim magna anim id minim eu cillum sunt dolore aliquip.”</p>
           </blockquote>
@@ -76,13 +68,6 @@
         
         <!-- Testimonial 2 -->
         <figure class="w-full flex-shrink-0">
-          <p class="sr-only">5 out of 5 stars</p>
-          <div class="flex gap-x-1 text-indigo-600">
-            <!-- Star icons -->
-            <svg class="h-5 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" />
-            </svg>
-          </div>
           <blockquote class="mt-10 text-xl font-semibold leading-8 tracking-tight text-gray-900 sm:text-2xl sm:leading-9">
             <p>“Amet elit laborum culpa irure incididunt adipisicing culpa amet officia exercitation.”</p>
           </blockquote>
@@ -97,13 +82,6 @@
 
         <!-- Testimonial 3 -->
         <figure class="w-full flex-shrink-0">
-          <p class="sr-only">5 out of 5 stars</p>
-          <div class="flex gap-x-1 text-indigo-600">
-            <!-- Star icons -->
-            <svg class="h-5 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" />
-            </svg>
-          </div>
           <blockquote class="mt-10 text-xl font-semibold leading-8 tracking-tight text-gray-900 sm:text-2xl sm:leading-9">
             <p>“Eu non aute velit id velit Lorem elit anim pariatur.”</p>
           </blockquote>
@@ -129,7 +107,6 @@
         </button>
       </div>
     </div>
-  </div>
 </section>
 
 <script>
