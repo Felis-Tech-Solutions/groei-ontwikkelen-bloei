@@ -1,0 +1,62 @@
+version: "3.8"
+
+services:
+    php:
+        container_name: GOB-php
+        build:
+            context: ./
+            dockerfile: "./docker/php/Dockerfile"
+            args:
+                - BUILD_UID=${DOCKER_UID}
+                - BUILD_GID=${DOCKER_GID}
+        working_dir: /var/www/html
+        networks:
+            - default
+        volumes:
+            - ./:/var/www/html:cached
+            - ./node_modules:/var/www/html/node_modules:delegated
+            - ./public:/var/www/html/public:delegated
+
+    nginx:
+        container_name: GOB-nginx
+        image: wodby/nginx
+        environment:
+            NGINX_STATIC_OPEN_FILE_CACHE: "off"
+            NGINX_ERROR_LOG_LEVEL: debug
+            NGINX_BACKEND_HOST: php
+            NGINX_VHOST_PRESET: php
+            NGINX_SERVER_ROOT: /var/www/html/public
+        depends_on:
+            - php
+        volumes:
+            - ./public:/var/www/html/public:delegated
+            - ./storage/app/public:/var/www/html/public/storage:delegated
+        networks:
+            - default
+            - traefik-gateway
+        labels:
+            - "traefik.enable=true"
+            - "traefik.docker.network=traefik-gateway"
+            - "traefik.http.routers.GOB-nginx.rule=Host(`groei-ontwikkelen-bloei-statamic.localhost`)"
+            - "traefik.http.routers.GOB-nginx.entrypoints=http"
+            - "traefik.http.routers.GOB-nginx.tls=false"
+    #      - "traefik.http.routers.GOB-nginx.entrypoints=https"
+    #      - "traefik.http.routers.GOB-nginx.tls=true"
+    redis:
+        image: redis:4-alpine
+        container_name: GOB-redis
+        volumes:
+            - redis:/data
+
+volumes:
+    mariadb:
+        driver: local
+    redis:
+        driver: local
+
+# Make the externally created network "traefik-gateway" available as network "default"
+# docker network create traefik-gateway
+networks:
+    traefik-gateway:
+        name: traefik-gateway
+        external: true
