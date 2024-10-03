@@ -1,4 +1,4 @@
-title: "Pagina - Homepagina"
+title: page_homepage
 tabs:
   main:
     display: Main
@@ -13,6 +13,14 @@ tabs:
               width: 50
               validate:
                 - required
+          -
+            handle: hero_image
+            field:
+              max_files: 1
+              container: assets
+              type: assets
+              display: 'Header afbeelding'
+              width: 50
   sidebar:
     display: Sidebar
     sections:
