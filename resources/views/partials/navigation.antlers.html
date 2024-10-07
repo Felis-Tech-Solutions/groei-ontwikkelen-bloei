@@ -3,7 +3,7 @@
     <nav class="max-w-7xl mx-auto flex items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
         <a href="#" class="-m-1.5 p-1.5">
-          <span class="sr-only">Groeiontwikkelenbloei</span>
+          <span class="sr-only">{{ site_name }}</span>
           <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Groeiontwikkelenbloei">
         </a>
       </div>
@@ -18,9 +18,9 @@
       </div>
 
       <div class="hidden lg:flex lg:gap-x-12">
-        <a href="#" class="text-sm font-semibold leading-6 text-white">Home</a>
-        <a href="#" class="text-sm font-semibold leading-6 text-white">Over ons</a>
-        <a href="#" class="text-sm font-semibold leading-6 text-white">Contact</a>
+        {{ nav_links }}
+        <a href="{{ url }}" class="text-sm font-semibold leading-6 text-white">{{ title }}</a>
+        {{ /nav_links }}
       </div>
 
       <div class="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-x-4">
@@ -32,7 +32,7 @@
     <div class="lg:hidden" role="dialog" aria-modal="true">
       <!-- Background backdrop, show/hide based on slide-over state. -->
       <div class="fixed inset-0 z-50"></div>
-      <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
+      <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gob-blue px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
         <div class="flex items-center justify-between">
           <a href="#" class="-m-1.5 p-1.5">
             <span class="sr-only">Your Company</span>
