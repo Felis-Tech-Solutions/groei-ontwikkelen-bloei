@@ -1,8 +1,8 @@
 <div class="bg-gob-blue" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);">
-  <header class="absolute inset-x-0 top-0 z-50">
+  <header class="fixed inset-x-0 top-0 z-50 bg-gob-blue">
     <nav class="max-w-7xl mx-auto flex items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
-        <a href="#" class="-m-1.5 p-1.5">
+        <a href="{{ site_url }}" class="-m-1.5 p-1.5">
           <span class="sr-only">{{ site_name }}</span>
           <svg width="425" height="175" viewBox="0 0 425 175" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="87" cy="87" r="87" fill="#59A4B7"/>
@@ -33,14 +33,16 @@
         </button>
       </div>
 
-      <div class="hidden lg:flex lg:gap-x-12">
-        {{ main }}
-        <a href="{{ url }}" class="text-sm font-semibold leading-6 text-white">{{ title }}</a>
-        {{ /main }}
+      <div class="flex hidden justify-center lg:flex lg:gap-x-12 w-full">
+        {{ nav handle="Main" }}
+        <li class="list-none">
+          <a class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-pink-300" href="{{ url }}">{{ title }}</a>
+        </li>
+       {{ /nav }}
       </div>
 
       <div class="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-x-4">
-        <button class="rounded-md bg-pink-300 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400">Boek nu</button>
+        <button class="rounded-md bg-pink-300 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400 w-48">Boek nu</button>
       </div>
     </nav>
 
@@ -50,7 +52,7 @@
       <div class="fixed inset-0 z-50"></div>
       <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gob-blue px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
         <div class="flex items-center justify-between">
-          <a href="#" class="-m-1.5 p-1.5">
+          <a href="{{ site_url }}" class="-m-1.5 p-1.5">
             <span class="sr-only">{{ title }}</span>
             <svg class="p-6" width="425" height="175" viewBox="0 0 425 175" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="87" cy="87" r="87" fill="#59A4B7"/>
@@ -81,9 +83,9 @@
         <div class="mt-6 flow-root">
           <div class="-my-6 divide-y divide-gray-500/25">
             <div class="space-y-2 py-6">
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Home</a>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Over ons</a>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Contact</a>
+              {{ nav handle="Main" }}
+              <a href="{{ url }}" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-pink-300">{{ title }}</a>
+              {{ /nav }}
             </div>
             <div class="py-6">
               <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-gray-800">Boeken</a>
@@ -93,24 +95,21 @@
       </div>
     </div>
   </header>
-
-  <div class="relative isolate overflow-hidden pt-14">
-    <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
-      <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
-    </div>
-
+<!-- Hero section -->
+  <div class="relative isolate overflow-hidden pt-32">
     <!-- Flexbox container voor links (tekst/knoppen) en rechts (afbeelding) -->
     <div class="flex flex-col md:flex-row items-center justify-between mx-auto max-w-7xl py-32 sm:py-48 lg:py-56">
       <!-- Linker sectie: Titel, tekst en knoppen -->
       <div class="md:w-1/2 max-w-xl">
-        <h1 class="text-4xl font-bold tracking-tight text-gob-brown sm:text-6xl">Groeiontwikkelenbloei</h1>
-        <p class="mt-6 text-lg leading-8 text-gob-brown">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
+        <h1 class="text-4xl font-bold tracking-tight text-gob-brown sm:text-6xl">{{ header_title }}</h1>
+        <p class="mt-6 text-lg leading-8 text-gob-brown">{{ header_tekst }}</p>
         <div class="mt-10 flex items-center gap-x-6">
-          <a href="#" class="rounded-md bg-pink-300 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400">Boek nu</a>
-          <a href="#" class="text-sm font-semibold leading-6 text-white">Over ons<span aria-hidden="true">→</span></a>
+          <a href="{{ link_pagina }}" class="rounded-md bg-pink-300 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400">
+            {{ contact_button }}
+          </a>
+          <a href="{{ link_pagina }}" class="text-sm font-semibold leading-6 text-white">{{ about_us_button }}<span aria-hidden="true">→</span></a>
         </div>
       </div>
-
       <!-- Rechter sectie: Afbeelding -->
       <div class="md:w-1/2 mt-10 md:mt-0">
         {{ hero_image }}

@@ -3,9 +3,9 @@ id: home
 blueprint: page_homepage
 title: Home
 template: home
-hero_image: make-a-image-for-a-hero-section.-the-image-schould-represent-a-mental-coach-that-is-using-horse-to-relfect-on-dirrent-topics.png
+hero_image: 457129952_7813890055383588_8257538995948509141_n-(1).jpg
 updated_by: 43a58184-2f3d-4ee7-87eb-a8c39bed2024
-updated_at: 1728985547
+updated_at: 1728995024
 header_tekst:
   -
     type: paragraph
@@ -29,6 +29,9 @@ titel_dienst_3: Coaching
 dienst_uitleg_1: 'Ondersteuning bij verlies en rouwverwerking'
 dienst_uitleg_2: 'Professionele begeleiding op maat'
 dienst_uitleg_3: 'Coaching voor persoonlijke groei'
+contact_button: 'Boek nu'
+about_us_button: 'Over ons'
+link_pagina: 'entry::90778dec-1c73-4a77-b3d4-4f00c0ef2ad8'
 ---
 ## Welcome to your brand new Statamic site!
 

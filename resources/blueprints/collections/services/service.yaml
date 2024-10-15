@@ -1,4 +1,4 @@
-title: 'Pagina - Contact'
+title: Diensten
 tabs:
   main:
     display: Main
@@ -10,15 +10,23 @@ tabs:
             field:
               type: text
               required: true
-              width: 50
-              validate:
-                - required
           -
-            handle: contact
+            handle: dienst_titel
+            field:
+              type: text
+              display: 'Dienst titel'
+          -
+            handle: dienst_image
+            field:
+              container: assets
+              type: assets
+              display: 'Dienst image'
+          -
+            handle: dienst_text
             field:
               remove_empty_nodes: false
               type: bard
-              display: contact
+              display: 'Dienst text'
   sidebar:
     display: Sidebar
     sections:
@@ -30,12 +38,3 @@ tabs:
               type: slug
               localizable: true
               validate: 'max:200'
-          -
-            handle: parent
-            field:
-              type: entries
-              collections:
-                - pages
-              max_items: 1
-              listable: false
-              localizable: true

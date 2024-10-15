@@ -1,0 +1,49 @@
+title: Testimonial
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+          -
+            handle: testimonal_text
+            field:
+              remove_empty_nodes: false
+              type: bard
+              display: 'Testimonal text'
+          -
+            handle: name_testiomonial
+            field:
+              type: text
+              display: 'Naam testiomonial'
+          -
+            handle: service_testimonial
+            field:
+              options:
+                -
+                  key: 'Rouw & verlies'
+                  value: null
+                -
+                  key: Trauma
+                  value: null
+                -
+                  key: 'Burn- out/ depressie'
+                  value: null
+              type: select
+              display: 'Dienst testimonial'
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'

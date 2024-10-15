@@ -46,6 +46,27 @@ tabs:
               type: width
               display: 'Spacing (Duplicate)'
               width: 50
+          -
+            handle: contact_button
+            field:
+              default: 'Boek nu'
+              type: button_group
+              display: 'Contact button'
+              width: 50
+          -
+            handle: about_us_button
+            field:
+              default: 'Over ons'
+              type: button_group
+              display: 'Over ons'
+              width: 50
+          -
+            handle: link_pagina
+            field:
+              collections:
+                - pages
+              type: link
+              display: 'link pagina'
       -
         display: 'Over ons sectie'
         fields:
@@ -65,66 +86,6 @@ tabs:
               remove_empty_nodes: false
               type: bard
               display: 'Over ons text home'
-      -
-        display: Diensten
-        fields:
-          -
-            handle: titel_dienst
-            field:
-              type: text
-              display: 'Titel Dienst'
-              width: 33
-          -
-            handle: titel_dienst_2
-            field:
-              type: text
-              display: 'Titel Dienst 2'
-              width: 33
-          -
-            handle: titel_dienst_3
-            field:
-              type: text
-              display: 'Titel Dienst 3'
-              width: 33
-          -
-            handle: assets_field_1
-            field:
-              container: assets
-              type: assets
-              display: 'Assets Field 1'
-              width: 33
-          -
-            handle: assets_field_2
-            field:
-              container: assets
-              type: assets
-              display: 'Assets Field 2'
-              width: 33
-          -
-            handle: assets_field_3
-            field:
-              container: assets
-              type: assets
-              display: 'Assets Field 3'
-              width: 33
-          -
-            handle: dienst_uitleg_1
-            field:
-              type: text
-              display: 'Dienst uitleg 1'
-              width: 33
-          -
-            handle: dienst_uitleg_2
-            field:
-              type: text
-              display: 'Dienst uitleg 2'
-              width: 33
-          -
-            handle: dienst_uitleg_3
-            field:
-              type: text
-              display: 'Dienst uitleg 3'
-              width: 33
   sidebar:
     display: Sidebar
     sections:
