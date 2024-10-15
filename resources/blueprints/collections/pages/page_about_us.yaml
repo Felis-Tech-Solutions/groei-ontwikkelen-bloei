@@ -1,10 +1,15 @@
-title: "Pagina - Over ons"
+title: 'Pagina - Over ons'
 tabs:
   main:
     display: Main
     sections:
       -
         fields:
+          -
+            handle: subtitel_tekst
+            field:
+              type: text
+              display: 'Subtitel tekst'
           -
             handle: title
             field:
@@ -13,6 +18,13 @@ tabs:
               width: 50
               validate:
                 - required
+              display: 'Titel pagina'
+          -
+            handle: over_ons_tekst
+            field:
+              remove_empty_nodes: false
+              type: bard
+              display: 'Over ons tekst'
   sidebar:
     display: Sidebar
     sections:

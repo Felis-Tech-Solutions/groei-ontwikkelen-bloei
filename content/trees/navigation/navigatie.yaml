@@ -1,13 +1,10 @@
 tree:
   -
-    id: ba41b73f-5b2b-4874-8b27-60344fa473c7
-    title: Home
-    url: '#'
+    id: cac0f304-b99b-4508-8a9e-2ba16a9f6ea3
+    entry: home
   -
-    id: 79cc4120-4f05-4d19-aebe-742b706d2f99
-    title: 'Over ons'
-    url: '#'
+    id: b42cb8e7-3933-4ef7-b431-781e484ce645
+    entry: bede35bc-915b-4b18-8167-08dff1668eb5
   -
-    id: a1d851b0-1ae2-4eb6-98c5-2d81bf7ec1ce
-    title: Contact
-    url: '#'
+    id: 2f8acfc4-415b-4527-b6e2-c6a9e97d882c
+    entry: 90778dec-1c73-4a77-b3d4-4f00c0ef2ad8
