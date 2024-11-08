@@ -37,11 +37,6 @@ return [
             'driver' => 'file',
             'path' => public_path('static'),
             'clear_on_save' => true,
-            'lock_hold_length' => 0,
-            'permissions' => [
-                'directory' => 0755,
-                'file' => 0644,
-            ],
         ],
 
 
