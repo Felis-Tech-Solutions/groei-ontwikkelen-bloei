@@ -1,7 +1,8 @@
 ---
 id: bede35bc-915b-4b18-8167-08dff1668eb5
-blueprint: Pagina - Over Ons
+blueprint: page_about
 title: 'Over ons'
+template: about
 updated_by: 43a58184-2f3d-4ee7-87eb-a8c39bed2024
 updated_at: 1728983851
 subtitel_tekst: 'Wie ben ik'
