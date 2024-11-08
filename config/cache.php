@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('CACHE_STORE', 'file'),
+    'default' => env('CACHE_DRIVER', 'file'),
 
     /*
     |--------------------------------------------------------------------------
@@ -38,6 +38,7 @@ return [
             'serialize' => false,
         ],
 
+        /*
         'database' => [
             'driver' => 'database',
             'connection' => env('DB_CACHE_CONNECTION', null),
@@ -45,6 +46,7 @@ return [
             'lock_connection' => env('DB_CACHE_LOCK_CONNECTION'),
             'lock_table' => env('DB_CACHE_LOCK_TABLE'),
         ],
+        */
 
         'file' => [
             'driver' => 'file',
@@ -96,6 +98,7 @@ return [
         ],
 
     ],
+
 
     /*
     |--------------------------------------------------------------------------
