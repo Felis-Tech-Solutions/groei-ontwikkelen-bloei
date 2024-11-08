@@ -49,8 +49,6 @@ services:
             - redis:/data
 
 volumes:
-    mariadb:
-        driver: local
     redis:
         driver: local
 
