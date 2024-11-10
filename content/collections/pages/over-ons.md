@@ -1,6 +1,6 @@
 ---
 id: bede35bc-915b-4b18-8167-08dff1668eb5
-blueprint: page_about
+blueprint: page_about_us
 title: 'Over ons'
 template: about
 updated_by: 43a58184-2f3d-4ee7-87eb-a8c39bed2024
