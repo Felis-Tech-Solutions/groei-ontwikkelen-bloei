@@ -6,6 +6,7 @@ template: about
 updated_by: 43a58184-2f3d-4ee7-87eb-a8c39bed2024
 updated_at: 1728983851
 header_title: 'Wie ben ik'
+contact_button: 'Boek nu'
 subtitel_tekst: 'Wie ben ik'
 over_ons_tekst:
   -
