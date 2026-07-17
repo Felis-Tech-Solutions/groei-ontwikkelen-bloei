@@ -1,5 +1,4 @@
 title: 'Pagina - Diensten'
-blueprint: page_diensten
 
 tabs:
   main:
@@ -7,45 +6,93 @@ tabs:
     sections:
       -
         display: Hero
+        instructions: 'Beheer de introductie bovenaan de dienstenpagina.'
         fields:
           -
             handle: title
             field:
               type: text
               display: Paginatitel
+              instructions: 'Interne titel van de pagina en terugval voor de hero-titel.'
               required: true
               validate:
                 - required
+
+          -
+            handle: hero_tonen
+            field:
+              type: toggle
+              display: 'Hero tonen'
+              default: true
+              width: 50
 
           -
             handle: hero_bovenregel
             field:
               type: text
               display: Bovenregel
+              instructions: 'Kleine tekst boven de hoofdtitel.'
               width: 50
+              if:
+                hero_tonen: 'equals true'
 
           -
             handle: hero_titel
             field:
               type: text
-              display: Hero titel
+              display: Hero-titel
+              instructions: 'Laat leeg om de paginatitel te gebruiken.'
               width: 50
+              if:
+                hero_tonen: 'equals true'
+
+          -
+            handle: hero_uitlijning
+            field:
+              type: select
+              display: Hero-indeling
+              default: tekst_links
+              width: 50
+              options:
+                tekst_links: 'Tekst links, afbeelding rechts'
+                tekst_rechts: 'Afbeelding links, tekst rechts'
+                gecentreerd: 'Tekst gecentreerd, zonder afbeelding'
+              if:
+                hero_tonen: 'equals true'
 
           -
             handle: hero_tekst
             field:
               type: bard
-              display: Hero tekst
+              display: Hero-tekst
+              instructions: 'Korte introductie van de dienstenpagina.'
               remove_empty_nodes: false
+              container: assets
+              if:
+                hero_tonen: 'equals true'
 
           -
             handle: hero_afbeelding
             field:
               type: assets
-              display: Hero afbeelding
+              display: Hero-afbeelding
+              instructions: 'Aanbevolen verhouding: liggend, bijvoorbeeld 4:3.'
               container: assets
               max_files: 1
               mode: grid
+              if:
+                hero_tonen: 'equals true'
+                hero_uitlijning: 'not gecentreerd'
+
+          -
+            handle: hero_knop_tonen
+            field:
+              type: toggle
+              display: 'Knop in hero tonen'
+              default: true
+              width: 50
+              if:
+                hero_tonen: 'equals true'
 
           -
             handle: hero_knop_tekst
@@ -54,6 +101,8 @@ tabs:
               display: Knoptekst
               default: 'Neem contact op'
               width: 50
+              if:
+                hero_knop_tonen: 'equals true'
 
           -
             handle: hero_knop_link
@@ -63,15 +112,20 @@ tabs:
               collections:
                 - pages
               width: 50
+              if:
+                hero_knop_tonen: 'equals true'
 
       -
         display: Dienstenoverzicht
+        instructions: 'Bepaal hoe de diensten uit de collectie Diensten worden getoond.'
         fields:
           -
             handle: diensten_bovenregel
             field:
               type: text
               display: Bovenregel
+              instructions: 'Kleine tekst boven de titel van het overzicht.'
+              width: 50
 
           -
             handle: diensten_titel
@@ -79,13 +133,67 @@ tabs:
               type: text
               display: Titel
               default: 'Onze diensten'
+              width: 50
 
           -
             handle: diensten_intro
             field:
               type: bard
               display: Introductie
+              instructions: 'Korte uitleg boven de dienstenkaarten.'
               remove_empty_nodes: false
+              container: assets
+
+          -
+            handle: diensten_sortering
+            field:
+              type: select
+              display: Sortering
+              default: handmatig
+              width: 50
+              options:
+                handmatig: 'Handmatige volgorde'
+                titel_oplopend: 'Titel A–Z'
+                titel_aflopend: 'Titel Z–A'
+                nieuwste_eerst: 'Nieuwste eerst'
+                oudste_eerst: 'Oudste eerst'
+
+          -
+            handle: diensten_kolommen
+            field:
+              type: select
+              display: 'Aantal kolommen op desktop'
+              default: '3'
+              width: 50
+              options:
+                '2': 'Twee kolommen'
+                '3': 'Drie kolommen'
+                '4': 'Vier kolommen'
+
+          -
+            handle: diensten_afbeelding_tonen
+            field:
+              type: toggle
+              display: 'Afbeeldingen tonen'
+              default: true
+              width: 50
+
+          -
+            handle: diensten_intro_tonen
+            field:
+              type: toggle
+              display: 'Samenvatting tonen'
+              instructions: 'Toont de introductietekst van iedere dienst op de kaart.'
+              default: true
+              width: 50
+
+          -
+            handle: diensten_knop_tonen
+            field:
+              type: toggle
+              display: 'Knop per dienst tonen'
+              default: true
+              width: 50
 
           -
             handle: diensten_knoptekst
@@ -93,22 +201,58 @@ tabs:
               type: text
               display: 'Knoptekst per dienst'
               default: 'Meer informatie'
+              width: 50
+              if:
+                diensten_knop_tonen: 'equals true'
+
+          -
+            handle: diensten_hele_kaart_link
+            field:
+              type: toggle
+              display: 'Hele kaart klikbaar maken'
+              instructions: 'Naast de knop worden ook titel en afbeelding klikbaar.'
+              default: true
+              width: 50
+
+          -
+            handle: diensten_lege_melding
+            field:
+              type: textarea
+              display: 'Melding zonder diensten'
+              instructions: 'Deze tekst verschijnt wanneer de collectie geen gepubliceerde diensten bevat.'
+              default: 'Er zijn momenteel nog geen diensten beschikbaar.'
+              character_limit: 250
 
       -
-        display: Call-to-action
+        display: 'Call-to-action'
+        instructions: 'Optioneel contactblok onder het dienstenoverzicht.'
         fields:
+          -
+            handle: cta_tonen
+            field:
+              type: toggle
+              display: 'CTA tonen'
+              default: true
+              width: 50
+
           -
             handle: cta_titel
             field:
               type: text
               display: Titel
               default: 'Benieuwd welke begeleiding bij jou past?'
+              if:
+                cta_tonen: 'equals true'
 
           -
             handle: cta_tekst
             field:
               type: textarea
               display: Tekst
+              instructions: 'Korte uitnodiging om contact op te nemen.'
+              character_limit: 350
+              if:
+                cta_tonen: 'equals true'
 
           -
             handle: cta_knop_tekst
@@ -117,6 +261,8 @@ tabs:
               display: Knoptekst
               default: 'Neem contact op'
               width: 50
+              if:
+                cta_tonen: 'equals true'
 
           -
             handle: cta_knop_link
@@ -126,6 +272,39 @@ tabs:
               collections:
                 - pages
               width: 50
+              if:
+                cta_tonen: 'equals true'
+
+  seo:
+    display: SEO
+    sections:
+      -
+        display: Zoekmachines
+        fields:
+          -
+            handle: seo_titel
+            field:
+              type: text
+              display: SEO-titel
+              instructions: 'Laat leeg om de paginatitel te gebruiken.'
+              character_limit: 60
+
+          -
+            handle: seo_beschrijving
+            field:
+              type: textarea
+              display: Meta-omschrijving
+              character_limit: 160
+
+          -
+            handle: seo_afbeelding
+            field:
+              type: assets
+              display: Deelafbeelding
+              instructions: 'Afbeelding voor delen via sociale media.'
+              container: assets
+              max_files: 1
+              mode: grid
 
   sidebar:
     display: Sidebar
