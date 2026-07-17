@@ -4,6 +4,7 @@ tabs:
     display: Main
     sections:
       -
+        display: Hero
         fields:
           -
             handle: title
@@ -27,12 +28,8 @@ tabs:
               type: text
               display: 'Header titel'
               width: 50
-          -
-            handle: spacing
-            field:
-              type: width
-              display: Spacing
-              width: 50
+              validate:
+                - required
           -
             handle: header_tekst
             field:
@@ -41,32 +38,36 @@ tabs:
               display: 'Header tekst'
               width: 50
           -
-            handle: spacing_duplicate
-            field:
-              type: width
-              display: 'Spacing (Duplicate)'
-              width: 50
-          -
             handle: contact_button
             field:
+              type: text
+              display: 'Primaire knoptekst'
               default: 'Boek nu'
-              type: button_group
-              display: 'Contact button'
               width: 50
           -
-            handle: about_us_button
-            field:
-              default: 'Over ons'
-              type: button_group
-              display: 'Over ons'
-              width: 50
-          -
-            handle: link_pagina
+            handle: contact_button_link
             field:
               collections:
                 - pages
               type: link
-              display: 'link pagina'
+              display: 'Primaire knoplink'
+              width: 50
+          -
+            handle: about_us_button
+            field:
+              type: text
+              display: 'Secundaire knoptekst'
+              default: 'Over ons'
+              width: 50
+          -
+            handle: about_us_button_link
+            field:
+              collections:
+                - pages
+              type: link
+              display: 'Secundaire knoplink'
+              width: 50
+
       -
         display: 'Over ons sectie'
         fields:
@@ -74,18 +75,155 @@ tabs:
             handle: over_ons_home
             field:
               type: text
-              display: 'Over ons home'
+              display: 'Kleine bovenregel'
           -
             handle: over_ons_home_titel
             field:
               type: text
-              display: 'Over ons home titel'
+              display: 'Over ons titel'
           -
             handle: over_ons_text_home
             field:
               remove_empty_nodes: false
               type: bard
-              display: 'Over ons text home'
+              display: 'Over ons tekst'
+
+      -
+        display: Diensten
+        fields:
+          -
+            handle: diensten_titel
+            field:
+              type: text
+              display: 'Diensten titel'
+              default: Diensten
+          -
+            handle: diensten
+            field:
+              type: replicator
+              display: Diensten
+              collapse: false
+              sets:
+                diensten:
+                  display: Diensten
+                  sets:
+                    dienst:
+                      display: Dienst
+                      icon: content-book-open
+                      fields:
+                        -
+                          handle: dienst_titel
+                          field:
+                            type: text
+                            display: Titel
+                            validate:
+                              - required
+                        -
+                          handle: dienst_afbeelding
+                          field:
+                            type: assets
+                            display: Afbeelding
+                            container: assets
+                            max_files: 1
+                            mode: grid
+                        -
+                          handle: dienst_tekst
+                          field:
+                            type: textarea
+                            display: Tekst
+                        -
+                          handle: dienst_link
+                          field:
+                            collections:
+                              - pages
+                            type: link
+                            display: Link
+                        -
+                          handle: dienst_linktekst
+                          field:
+                            type: text
+                            display: Knoptekst
+                            default: 'Meer informatie'
+
+      -
+        display: Testimonials
+        fields:
+          -
+            handle: testimonials_titel
+            field:
+              type: text
+              display: 'Testimonials titel'
+              default: 'Wat mensen ervan vonden'
+          -
+            handle: testimonials
+            field:
+              type: replicator
+              display: Testimonials
+              collapse: false
+              sets:
+                testimonials:
+                  display: Testimonials
+                  sets:
+                    testimonial:
+                      display: Testimonial
+                      icon: text-formatting-quotation
+                      fields:
+                        -
+                          handle: testimonial_tekst
+                          field:
+                            type: textarea
+                            display: Tekst
+                            validate:
+                              - required
+                        -
+                          handle: testimonial_naam
+                          field:
+                            type: text
+                            display: Naam
+                        -
+                          handle: testimonial_omschrijving
+                          field:
+                            type: text
+                            display: Omschrijving
+                        -
+                          handle: testimonial_afbeelding
+                          field:
+                            type: assets
+                            display: Profielfoto
+                            container: assets
+                            max_files: 1
+                            mode: grid
+
+      -
+        display: 'CTA sectie'
+        fields:
+          -
+            handle: cta_titel
+            field:
+              type: text
+              display: Titel
+              default: 'Geïnteresseerd in wat paardencoaching kan doen?'
+          -
+            handle: cta_tekst
+            field:
+              type: textarea
+              display: Tekst
+          -
+            handle: cta_knop_tekst
+            field:
+              type: text
+              display: Knoptekst
+              default: 'Neem contact op'
+              width: 50
+          -
+            handle: cta_knop_link
+            field:
+              collections:
+                - pages
+              type: link
+              display: Knoplink
+              width: 50
+
   sidebar:
     display: Sidebar
     sections:
