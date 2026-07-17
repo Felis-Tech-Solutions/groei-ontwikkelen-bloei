@@ -88,7 +88,7 @@ tabs:
               type: bard
               display: 'Over ons tekst'
 
-      -
+            -
         display: Diensten
         fields:
           -
@@ -109,7 +109,6 @@ tabs:
                   sets:
                     dienst:
                       display: Dienst
-                      icon: content-book-open
                       fields:
                         -
                           handle: dienst_titel
@@ -125,34 +124,31 @@ tabs:
                             display: Afbeelding
                             container: assets
                             max_files: 1
-                            mode: grid
                         -
-                          handle: dienst_tekst
+                          handle: dienst_beschrijving
                           field:
                             type: textarea
-                            display: Tekst
+                            display: Beschrijving
                         -
                           handle: dienst_link
                           field:
-                            collections:
-                              - pages
                             type: link
                             display: Link
                         -
                           handle: dienst_linktekst
                           field:
                             type: text
-                            display: Knoptekst
+                            display: Linktekst
                             default: 'Meer informatie'
 
       -
-        display: Testimonials
+        display: 'Wat mensen ervan vonden'
         fields:
           -
             handle: testimonials_titel
             field:
               type: text
-              display: 'Testimonials titel'
+              display: Sectietitel
               default: 'Wat mensen ervan vonden'
           -
             handle: testimonials
@@ -166,7 +162,6 @@ tabs:
                   sets:
                     testimonial:
                       display: Testimonial
-                      icon: text-formatting-quotation
                       fields:
                         -
                           handle: testimonial_tekst
@@ -181,18 +176,17 @@ tabs:
                             type: text
                             display: Naam
                         -
-                          handle: testimonial_omschrijving
+                          handle: testimonial_functie
                           field:
                             type: text
-                            display: Omschrijving
+                            display: Functie
                         -
                           handle: testimonial_afbeelding
                           field:
                             type: assets
-                            display: Profielfoto
+                            display: Afbeelding
                             container: assets
                             max_files: 1
-                            mode: grid
 
       -
         display: 'CTA sectie'

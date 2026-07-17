@@ -8,77 +8,145 @@
   
     <div class="py-24 sm:py-32">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="lg:mx-0 mx-auto">
-          <h2 class="text-3xl font-bold tracking-tight text-gob-green sm:text-4xl mb-8">Diensten</h2>
-          <!-- Diensten -->
-          <ul role="list" class="gap-x-8 gap-y-10 grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 p-0 lg:px-0 lg:mx-0 mx-auto">
-            <li class="p-6 rounded-lg shadow-lg transition-transform duration-200 hover:scale-105">
-              <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900 text-center">Rouw & verlies</h3>
-              <img class="aspect-[3/2] w-full rounded-2xl object-cover" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="">
-              <p class="mt-4 text-base leading-7 text-gray-700 text-center">Ondersteuning bij verlies en rouwverwerking</p>
-            </li>
-            <li class="p-6 rounded-lg shadow-lg transition-transform duration-200 hover:scale-105">
-              <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900 text-center">Persoonlijke begeleiding</h3>
-              <img class="aspect-[3/2] w-full rounded-2xl object-cover" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="">
-              <p class="mt-4 text-base leading-7 text-gray-700 text-center">Professionele begeleiding op maat</p>
-            </li>
-            <li class="p-6 rounded-lg shadow-lg transition-transform duration-200 hover:scale-105">
-              <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900 text-center">Coaching</h3>
-              <img class="aspect-[3/2] w-full rounded-2xl object-cover" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="">
-              <p class="mt-4 text-base leading-7 text-gray-700 text-center">Coaching voor persoonlijke groei</p>
-            </li>
-          </ul>
+        <div class="mx-auto lg:mx-0">
+
+          <h2 class="mb-8 text-3xl font-bold tracking-tight text-gob-green sm:text-4xl">
+            {{ diensten_titel ?? 'Diensten' }}
+          </h2>
+
+          {{ if diensten }}
+            <ul
+              role="list"
+              class="mx-auto grid grid-cols-1 gap-x-8 gap-y-10 p-0 sm:grid-cols-2 lg:mx-0 lg:grid-cols-3 lg:px-0"
+            >
+              {{ diensten }}
+                <li class="rounded-lg p-6 shadow-lg transition-transform duration-200 hover:scale-105">
+
+                  {{ if dienst_titel }}
+                    <h3 class="mt-6 text-center text-lg font-semibold leading-8 tracking-tight text-gray-900">
+                      {{ dienst_titel }}
+                    </h3>
+                  {{ /if }}
+
+                  {{ if dienst_afbeelding }}
+                    {{ dienst_afbeelding }}
+                      <img
+                        class="aspect-[3/2] w-full rounded-2xl object-cover"
+                        src="{{ url }}"
+                        alt="{{ alt ?? dienst_titel }}"
+                        loading="lazy"
+                      >
+                    {{ /dienst_afbeelding }}
+                  {{ /if }}
+
+                  {{ if dienst_beschrijving }}
+                    <p class="mt-4 text-center text-base leading-7 text-gray-700">
+                      {{ dienst_beschrijving }}
+                    </p>
+                  {{ /if }}
+
+                  {{ if dienst_link }}
+                    <div class="mt-6 text-center">
+                      <a
+                        href="{{ dienst_link }}"
+                        class="inline-flex rounded-full bg-pink-300 px-5 py-2.5 text-sm font-semibold text-white"
+                      >
+                        {{ dienst_linktekst ?? 'Meer informatie' }}
+                      </a>
+                    </div>
+                  {{ /if }}
+
+                </li>
+              {{ /diensten }}
+            </ul>
+          {{ /if }}
+
         </div>
-      </div>
+      </div>    
     </div>
     
-    <div class="text-center mb-8">
-      <h2 class="text-3xl font-bold tracking-tight text-gob-green sm:text-4xl">Wat mensen er van vonden</h2>
+    <div class="mb-8 text-center">
+  <h2 class="text-3xl font-bold tracking-tight text-gob-green sm:text-4xl">
+    {{ testimonials_titel ?? 'Wat mensen ervan vonden' }}
+  </h2>
+</div>
+
+{{ if testimonials }}
+  <div
+    id="testimonial-slider"
+    class="container relative mx-auto w-full overflow-hidden"
+  >
+    <div
+      id="slides"
+      class="flex transition-transform duration-300"
+    >
+      {{ testimonials }}
+        <figure class="m-2 box-border w-full flex-shrink-0 rounded-lg bg-pink-300 p-6 md:w-1/3">
+
+          {{ if testimonial_tekst }}
+            <blockquote class="mt-10 text-xl font-semibold leading-8 tracking-tight text-gray-900 sm:text-2xl sm:leading-9">
+              <p>“{{ testimonial_tekst }}”</p>
+            </blockquote>
+          {{ /if }}
+
+          <figcaption class="mt-10 flex items-end justify-between gap-x-6">
+            <div class="text-sm leading-6">
+
+              {{ if testimonial_naam }}
+                <div class="font-semibold text-gray-900">
+                  {{ testimonial_naam }}
+                </div>
+              {{ /if }}
+
+              {{ if testimonial_functie }}
+                <div class="mt-0.5 text-gray-600">
+                  {{ testimonial_functie }}
+                </div>
+              {{ /if }}
+
+            </div>
+
+            {{ if testimonial_afbeelding }}
+              {{ testimonial_afbeelding }}
+                <img
+                  class="h-12 w-12 rounded-full bg-gray-50 object-cover"
+                  src="{{ url }}"
+                  alt="{{ alt ?? testimonial_naam }}"
+                  loading="lazy"
+                >
+              {{ /testimonial_afbeelding }}
+            {{ /if }}
+
+          </figcaption>
+        </figure>
+      {{ /testimonials }}
     </div>
-    
-    <div id="testimonial-slider" class="relative overflow-hidden w-full container mx-auto">
-      <div class="flex transition-transform duration-300" id="slides">
-        <!-- Testimonial 1 -->
-        <figure class="w-full md:w-1/3 flex-shrink-0 p-6 box-border bg-pink-300 m-2 rounded-lg ">
-          <blockquote class="mt-10 text-xl font-semibold leading-8 tracking-tight text-gray-900 sm:text-2xl sm:leading-9">
-            <p>“Qui dolor enim consectetur do et non ex amet culpa sint in ea non dolore. Enim minim magna anim id minim eu cillum sunt dolore aliquip.”</p>
-          </blockquote>
-          <figcaption class="mt-10 flex items-end gap-x-6 justify-between">
-            <div class="text-sm leading-6">
-              <div class="font-semibold text-gray-900">Judith Black</div>
-              <div class="mt-0.5 text-gray-600">CEO of Workcation</div>
-            </div>
-            <img class="h-12 w-12 rounded-full bg-gray-50" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=1024&h=1024&q=80" alt="">
-          </figcaption>
-        </figure>
-    
-        <!-- Testimonial 2 -->
-        <figure class="w-full md:w-1/3 flex-shrink-0 p-6 box-border bg-pink-300 m-2 rounded-lg ">
-          <blockquote class="mt-10 text-xl font-semibold leading-8 tracking-tight text-gray-900 sm:text-2xl sm:leading-9">
-            <p>"Na het verlies van een dierbare voelde ik me overweldigd door verdriet. Dankzij de paardencoaching van Groeiontwikkelenbloei kon ik mijn emoties een plek geven. De verbinding met de paarden hielp me te rouwen en mooie herinneringen te koesteren. Ik kan het iedereen aanraden!"</p>
-          </blockquote>
-          <figcaption class="mt-10 flex items-end gap-x-6 justify-between">
-            <div class="text-sm leading-6">
-              <div class="font-semibold text-gray-900">Jane doe</div>
-              <div class="mt-0.5 text-gray-600">Trauma Coaching</div>
-            </div>
-            <img class="h-12 w-12 rounded-full bg-gray-50" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=1024&h=1024&q=80" alt="">
-          </figcaption>
-        </figure>
-    
-        <!-- Testimonial 3 -->
-        <figure class="w-full md:w-1/3 flex-shrink-0 p-6 box-border bg-pink-300 m-2 rounded-lg">
-          <blockquote class="mt-10 text-xl font-semibold leading-8 tracking-tight text-gray-900 sm:text-2xl sm:leading-9">
-            <p class="text-lg">"Na een lange periode van burn-out voelde ik me verloren en overweldigd. De paardencoaching van Groeiontwikkelenbloei bood me de ruimte om mijn emoties te verkennen en weer in contact te komen met mezelf. De verbinding met de paarden was enorm helend en hielp me om mijn energie en vreugde terug te vinden. Ik ben Groeiontwikkelenbloei zo dankbaar en kan deze ervaring iedereen aanraden die worstelt met vergelijkbare uitdagingen!"</p>
-          </blockquote>
-          <figcaption class="mt-10 flex items-center gap-x-6 justify-between">
-            <div class="text-sm leading-6">
-              <div class="font-semibold text-gray-900">Anoniem</div>
-              <div class="mt-0.5 text-gray-600">Burn out/Depressie</div>
-            </div>
-          </figcaption>
-        </figure>
+
+    {{ if testimonials | count > 1 }}
+      <div class="absolute inset-y-0 left-0 flex items-center">
+        <button
+          id="prevBtn"
+          type="button"
+          class="rounded-full bg-white p-2 shadow-md hover:bg-gray-200"
+          aria-label="Vorige testimonial"
+        >
+          &lt;
+        </button>
       </div>
+
+      <div class="absolute inset-y-0 right-0 flex items-center">
+        <button
+          id="nextBtn"
+          type="button"
+          class="rounded-full bg-white p-2 shadow-md hover:bg-gray-200"
+          aria-label="Volgende testimonial"
+        >
+          &gt;
+        </button>
+      </div>
+    {{ /if }}
+  </div>
+{   { /if }}
     
       <!-- Navigation Buttons -->
       <div class="absolute inset-y-0 left-0 flex items-center">
