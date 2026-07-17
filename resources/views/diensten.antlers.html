@@ -1,56 +1,149 @@
 <section class="w-full bg-gob-blue px-6 py-20 sm:py-28 lg:px-8">
-    <div class="mx-auto max-w-7xl">
-        <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            {{ title }}
-        </h1>
+  <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
 
-        {{ if content }}
-            <div class="mt-6 max-w-3xl text-lg leading-8 text-white/90">
-                {{ content }}
-            </div>
-        {{ /if }}
+    <div>
+      {{ if hero_bovenregel }}
+        <p class="text-base font-semibold leading-7 text-pink-300">
+          {{ hero_bovenregel }}
+        </p>
+      {{ /if }}
+
+      <h1 class="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+        {{ hero_titel ?? title }}
+      </h1>
+
+      {{ if hero_tekst }}
+        <div class="mt-6 max-w-2xl text-lg leading-8 text-white/90">
+          {{ hero_tekst }}
+        </div>
+      {{ /if }}
+
+      {{ if hero_knop_link }}
+        <div class="mt-8">
+          <a
+            href="{{ hero_knop_link }}"
+            class="inline-flex rounded-md bg-pink-300 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:opacity-90"
+          >
+            {{ hero_knop_tekst ?? 'Neem contact op' }}
+            <span class="ml-2" aria-hidden="true">→</span>
+          </a>
+        </div>
+      {{ /if }}
     </div>
+
+    {{ if hero_afbeelding }}
+      {{ hero_afbeelding }}
+        <img
+          class="aspect-[4/3] w-full rounded-2xl object-cover shadow-lg"
+          src="{{ url }}"
+          alt="{{ alt ?? hero_titel ?? title }}"
+          width="{{ width }}"
+          height="{{ height }}"
+          fetchpriority="high"
+        >
+      {{ /hero_afbeelding }}
+    {{ /if }}
+
+  </div>
 </section>
 
 <section class="w-full bg-[#fffdeb] px-6 py-20 sm:py-28 lg:px-8">
-    <div class="mx-auto max-w-7xl">
-        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+  <div class="mx-auto max-w-7xl">
 
-            {{ collection:services sort="order" }}
-                <article class="flex h-full flex-col rounded-2xl bg-white p-6 shadow-lg">
+    <div class="mx-auto max-w-3xl text-center">
+      {{ if diensten_bovenregel }}
+        <p class="font-semibold text-pink-300">
+          {{ diensten_bovenregel }}
+        </p>
+      {{ /if }}
 
-                    {{ if dienst_hero_afbeelding }}
-                        {{ dienst_hero_afbeelding }}
-                            <img
-                                class="aspect-[3/2] w-full rounded-2xl object-cover"
-                                src="{{ url }}"
-                                alt="{{ alt ?? dienst_titel ?? title }}"
-                                loading="lazy"
-                            >
-                        {{ /dienst_hero_afbeelding }}
-                    {{ /if }}
+      <h2 class="mt-2 text-3xl font-bold tracking-tight text-gob-green sm:text-4xl">
+        {{ diensten_titel ?? 'Onze diensten' }}
+      </h2>
 
-                    <h2 class="mt-6 text-2xl font-bold text-gob-green">
-                        {{ dienst_titel ?? title }}
-                    </h2>
-
-                    {{ if dienst_intro }}
-                        <div class="mt-4 text-gray-700">
-                            {{ dienst_intro }}
-                        </div>
-                    {{ /if }}
-
-                    <div class="mt-auto pt-6">
-                        <a
-                            href="{{ url }}"
-                            class="inline-flex rounded-full bg-pink-300 px-5 py-2.5 text-sm font-semibold text-white"
-                        >
-                            Meer informatie
-                        </a>
-                    </div>
-                </article>
-            {{ /collection:services }}
-
+      {{ if diensten_intro }}
+        <div class="mt-6 text-lg leading-8 text-gray-700">
+          {{ diensten_intro }}
         </div>
+      {{ /if }}
     </div>
+
+    <div class="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
+      {{ collection:services sort="order" }}
+        <article class="flex h-full flex-col rounded-2xl bg-white p-6 shadow-lg transition-transform duration-200 hover:scale-[1.02]">
+
+          {{ if dienst_hero_afbeelding }}
+            {{ dienst_hero_afbeelding }}
+              <img
+                class="aspect-[3/2] w-full rounded-2xl object-cover"
+                src="{{ url }}"
+                alt="{{ alt ?? dienst_titel ?? title }}"
+                width="{{ width }}"
+                height="{{ height }}"
+                loading="lazy"
+              >
+            {{ /dienst_hero_afbeelding }}
+          {{ /if }}
+
+          <h3 class="mt-6 text-2xl font-bold text-gob-green">
+            {{ dienst_titel ?? title }}
+          </h3>
+
+          {{ if dienst_intro }}
+            <div class="mt-4 line-clamp-4 text-base leading-7 text-gray-700">
+              {{ dienst_intro }}
+            </div>
+          {{ /if }}
+
+          <div class="mt-auto pt-6">
+            <a
+              href="{{ url }}"
+              class="inline-flex rounded-full bg-pink-300 px-5 py-2.5 text-sm font-semibold text-white transition hover:opacity-90"
+            >
+              {{ diensten_knoptekst ?? 'Meer informatie' }}
+              <span class="ml-2" aria-hidden="true">→</span>
+            </a>
+          </div>
+
+        </article>
+      {{ /collection:services }}
+
+    </div>
+
+  </div>
 </section>
+
+{{ if cta_titel || cta_tekst || cta_knop_link }}
+  <section class="w-full bg-gob-blue px-6 py-20 lg:px-8">
+    <div class="mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-2">
+
+      <div>
+        {{ if cta_titel }}
+          <h2 class="text-3xl font-bold tracking-tight text-white">
+            {{ cta_titel }}
+          </h2>
+        {{ /if }}
+
+        {{ if cta_tekst }}
+          <p class="mt-4 text-base leading-7 text-white/90">
+            {{ cta_tekst }}
+          </p>
+        {{ /if }}
+      </div>
+
+      {{ if cta_knop_link }}
+        <div class="md:text-right">
+          <a
+            href="{{ cta_knop_link }}"
+            class="inline-flex rounded-md bg-pink-300 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:opacity-90"
+          >
+            {{ cta_knop_tekst ?? 'Neem contact op' }}
+            <span class="ml-2" aria-hidden="true">→</span>
+          </a>
+        </div>
+      {{ /if }}
+
+    </div>
+  </section>
+{{ /if }}

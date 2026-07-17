@@ -1,4 +1,12 @@
 title: Diensten
+template: dienst
+layout: layout
+revisions: false
+route: '/diensten/{slug}'
+sort_dir: asc
+date_behavior:
+  past: public
+  future: private
 tabs:
   main:
     display: Main
