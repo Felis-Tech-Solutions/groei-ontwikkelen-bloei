@@ -1,0 +1,242 @@
+title: Dienst
+
+tabs:
+  main:
+    display: Inhoud
+    sections:
+
+      -
+        display: Hero
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              display: Paginatitel
+              required: true
+              validate:
+                - required
+
+          -
+            handle: dienst_bovenregel
+            field:
+              type: text
+              display: Bovenregel
+
+          -
+            handle: dienst_titel
+            field:
+              type: text
+              display: Grote titel
+
+          -
+            handle: dienst_intro
+            field:
+              type: bard
+              display: Introductie
+              remove_empty_nodes: false
+
+          -
+            handle: dienst_hero_afbeelding
+            field:
+              type: assets
+              display: Hero afbeelding
+              container: assets
+              max_files: 1
+
+          -
+            handle: dienst_knop_tekst
+            field:
+              type: text
+              display: Knoptekst
+              default: Neem contact op
+              width: 50
+
+          -
+            handle: dienst_knop_link
+            field:
+              type: link
+              display: Knoplink
+              collections:
+                - pages
+              width: 50
+
+      -
+        display: Inhoud
+        fields:
+
+          -
+            handle: dienst_inhoud
+            field:
+              type: bard
+              display: Pagina inhoud
+              remove_empty_nodes: false
+
+          -
+            handle: kenmerken_titel
+            field:
+              type: text
+              display: Titel kenmerken
+              default: Wat kun je verwachten?
+
+          -
+            handle: dienst_kenmerken
+            field:
+              type: replicator
+              display: Kenmerken
+              collapse: false
+
+              sets:
+                kenmerken:
+                  display: Kenmerken
+                  sets:
+
+                    kenmerk:
+                      display: Kenmerk
+
+                      fields:
+
+                        -
+                          handle: kenmerk_titel
+                          field:
+                            type: text
+                            display: Titel
+
+                        -
+                          handle: kenmerk_tekst
+                          field:
+                            type: textarea
+                            display: Omschrijving
+
+      -
+        display: Werkwijze
+        fields:
+
+          -
+            handle: werkwijze_bovenregel
+            field:
+              type: text
+              display: Kleine titel
+
+          -
+            handle: werkwijze_titel
+            field:
+              type: text
+              display: Titel
+              default: Hoe werkt het?
+
+          -
+            handle: werkwijze_intro
+            field:
+              type: textarea
+              display: Introductie
+
+          -
+            handle: werkwijze_stappen
+            field:
+              type: replicator
+              display: Stappen
+              collapse: false
+
+              sets:
+                stappen:
+                  display: Stappen
+                  sets:
+
+                    stap:
+                      display: Stap
+
+                      fields:
+
+                        -
+                          handle: stap_titel
+                          field:
+                            type: text
+                            display: Titel
+
+                        -
+                          handle: stap_tekst
+                          field:
+                            type: textarea
+                            display: Beschrijving
+
+      -
+        display: Extra informatie
+        fields:
+
+          -
+            handle: dienst_tweede_afbeelding
+            field:
+              type: assets
+              display: Afbeelding
+              container: assets
+              max_files: 1
+
+          -
+            handle: dienst_extra_titel
+            field:
+              type: text
+              display: Titel
+
+          -
+            handle: dienst_extra_tekst
+            field:
+              type: bard
+              display: Tekst
+              remove_empty_nodes: false
+
+      -
+        display: Call to Action
+        fields:
+
+          -
+            handle: dienst_cta_titel
+            field:
+              type: text
+              display: Titel
+              default: Benieuwd wat deze begeleiding voor jou kan betekenen?
+
+          -
+            handle: dienst_cta_tekst
+            field:
+              type: textarea
+              display: Tekst
+
+          -
+            handle: dienst_cta_knoptekst
+            field:
+              type: text
+              display: Knoptekst
+              default: Neem contact op
+              width: 50
+
+          -
+            handle: dienst_cta_link
+            field:
+              type: link
+              display: Knoplink
+              collections:
+                - pages
+              width: 50
+
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: max:200
+
+          -
+            handle: parent
+            field:
+              type: entries
+              collections:
+                - pages
+              max_items: 1
+              listable: false
+              localizable: true
