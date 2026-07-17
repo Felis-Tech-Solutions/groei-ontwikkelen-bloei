@@ -1,0 +1,149 @@
+title: 'Pagina - Diensten'
+
+tabs:
+  main:
+    display: Inhoud
+    sections:
+      -
+        display: Hero
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              display: Paginatitel
+              required: true
+              validate:
+                - required
+
+          -
+            handle: hero_bovenregel
+            field:
+              type: text
+              display: Bovenregel
+              width: 50
+
+          -
+            handle: hero_titel
+            field:
+              type: text
+              display: Hero titel
+              width: 50
+
+          -
+            handle: hero_tekst
+            field:
+              type: bard
+              display: Hero tekst
+              remove_empty_nodes: false
+
+          -
+            handle: hero_afbeelding
+            field:
+              type: assets
+              display: Hero afbeelding
+              container: assets
+              max_files: 1
+              mode: grid
+
+          -
+            handle: hero_knop_tekst
+            field:
+              type: text
+              display: Knoptekst
+              default: 'Neem contact op'
+              width: 50
+
+          -
+            handle: hero_knop_link
+            field:
+              type: link
+              display: Knoplink
+              collections:
+                - pages
+              width: 50
+
+      -
+        display: Dienstenoverzicht
+        fields:
+          -
+            handle: diensten_bovenregel
+            field:
+              type: text
+              display: Bovenregel
+
+          -
+            handle: diensten_titel
+            field:
+              type: text
+              display: Titel
+              default: 'Onze diensten'
+
+          -
+            handle: diensten_intro
+            field:
+              type: bard
+              display: Introductie
+              remove_empty_nodes: false
+
+          -
+            handle: diensten_knoptekst
+            field:
+              type: text
+              display: 'Knoptekst per dienst'
+              default: 'Meer informatie'
+
+      -
+        display: Call-to-action
+        fields:
+          -
+            handle: cta_titel
+            field:
+              type: text
+              display: Titel
+              default: 'Benieuwd welke begeleiding bij jou past?'
+
+          -
+            handle: cta_tekst
+            field:
+              type: textarea
+              display: Tekst
+
+          -
+            handle: cta_knop_tekst
+            field:
+              type: text
+              display: Knoptekst
+              default: 'Neem contact op'
+              width: 50
+
+          -
+            handle: cta_knop_link
+            field:
+              type: link
+              display: Knoplink
+              collections:
+                - pages
+              width: 50
+
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+
+          -
+            handle: parent
+            field:
+              type: entries
+              collections:
+                - pages
+              max_items: 1
+              listable: false
+              localizable: true
