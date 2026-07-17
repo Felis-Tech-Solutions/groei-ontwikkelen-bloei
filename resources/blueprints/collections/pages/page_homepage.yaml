@@ -1,4 +1,5 @@
 title: page_homepage
+
 tabs:
   main:
     display: Main
@@ -88,7 +89,7 @@ tabs:
               type: bard
               display: 'Over ons tekst'
 
-            -
+      -
         display: Diensten
         fields:
           -
