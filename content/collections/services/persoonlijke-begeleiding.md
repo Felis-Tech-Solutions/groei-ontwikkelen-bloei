@@ -13,7 +13,8 @@ dienst_text:
         type: text
         text: 'Op maat gemaakte begeleiding voor mensen die meer inzicht willen krijgen in hun gevoelens, keuzes en levensrichting, en die weer grip willen krijgen op hun dagelijks leven.'
 updated_by: 43a58184-2f3d-4ee7-87eb-a8c39bed2024
-updated_at: 1728987185
+updated_at: 1784291625
 dienst_image:
-  - damien-badjas.png
+  - 457129952_7813890055383588_8257538995948509141_n-(1).jpg
+template_field: dienst
 ---
