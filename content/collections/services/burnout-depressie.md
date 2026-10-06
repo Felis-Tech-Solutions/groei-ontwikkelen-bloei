@@ -1,17 +1,145 @@
----
-id: a470dc87-8d0e-4f03-ac90-d750bbafc931
-blueprint: service
-title: 'Burnout / depressie'
-dienst_titel: 'Burnout / depressie'
-dienst_text:
-  -
-    type: paragraph
-    content:
-      -
-        type: text
-        text: 'Lorum ipsum'
-updated_by: 43a58184-2f3d-4ee7-87eb-a8c39bed2024
-updated_at: 1728987170
-dienst_image:
-  - damien-badjas.png
----
+<section class="w-full bg-gob-bg px-6 py-20 sm:py-28 lg:px-8">
+  <div class="mx-auto max-w-7xl">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="text-base font-semibold leading-7 text-pink-300">Over ons</p>
+      <h1 class="mt-2 text-4xl font-bold tracking-tight text-gob-green sm:text-5xl">
+        Een veilige ruimte voor herstel, groei en balans
+      </h1>
+      <p class="mt-6 text-lg leading-8 text-gray-700">
+        Welkom bij Groei Ontwikkelen Bloei. Ik ben Susanne, en ik help mensen die worstelen met rouw,
+        verlies, burnout, depressie of een gebrek aan rust en richting. Met mijn paarden creëer ik een
+        veilige en warme omgeving waarin je kunt ontspannen, opnieuw verbinding kunt maken met jezelf en
+        stap voor stap kunt groeien.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="w-full bg-white px-6 py-20 lg:px-8">
+  <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2 lg:items-center">
+    <div>
+      <p class="text-base font-semibold uppercase tracking-[0.2em] text-pink-300">Mijn missie</p>
+      <h2 class="mt-4 text-3xl font-bold tracking-tight text-gob-green sm:text-4xl">
+        Verlies, stress en onzekerheid omzetten naar rust en zelfinzicht
+      </h2>
+      <p class="mt-6 text-lg leading-8 text-gray-700">
+        Mijn missie is om mensen die vastlopen in hun leven een plek te bieden waar zij zich veilig,
+        gehoord en gezien kunnen voelen. In de samenwerking met mijn paarden ontstaat een natuurlijke
+        ruimte voor erkenning, herstel en persoonlijke ontwikkeling. Door middel van paardencoaching
+        help ik je om weer in contact te komen met je eigen kracht, grenzen en innerlijke rust.
+      </p>
+    </div>
+
+    <div class="rounded-3xl bg-[#fffdeb] p-8 shadow-lg ring-1 ring-gob-green/10">
+      <div class="space-y-6">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gob-blue">Waarom paardencoaching?</p>
+          <h3 class="mt-2 text-2xl font-bold text-gob-green">De paarden helpen om te voelen wat je soms niet kunt zeggen</h3>
+        </div>
+        <p class="text-base leading-7 text-gray-700">
+          Paarden reageren puur en intuïtief op onze emoties, energie en gedragingen. Daardoor kunnen ze
+          subtiele signalen laten zien die je vaak niet direct zelf ziet. Samen met de paarden ontdek je
+          waar blokkades ontstaan, wat je nodig hebt en hoe je weer in balans komt.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="w-full bg-[#fffdeb] px-6 py-20 lg:px-8">
+  <div class="mx-auto max-w-7xl">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="text-base font-semibold text-pink-300">Mijn aanpak</p>
+      <h2 class="mt-2 text-3xl font-bold tracking-tight text-gob-green sm:text-4xl">
+        Vertrouwen, echtheid en groei staan centraal
+      </h2>
+    </div>
+
+    <div class="mt-12 grid gap-8 md:grid-cols-3">
+      <div class="rounded-2xl bg-white p-8 shadow-lg ring-1 ring-gob-green/10">
+        <h3 class="text-2xl font-bold text-gob-green">Vertrouwen</h3>
+        <p class="mt-4 text-base leading-7 text-gray-700">
+          Een veilige, respectvolle omgeving waarin je volledig jezelf kunt zijn zonder druk of oordeel.
+        </p>
+      </div>
+
+      <div class="rounded-2xl bg-white p-8 shadow-lg ring-1 ring-gob-green/10">
+        <h3 class="text-2xl font-bold text-gob-green">Echtheid</h3>
+        <p class="mt-4 text-base leading-7 text-gray-700">
+          Samen kijken we eerlijk naar waar je bent, wat je voelt en welke stap jij nodig hebt om verder te komen.
+        </p>
+      </div>
+
+      <div class="rounded-2xl bg-white p-8 shadow-lg ring-1 ring-gob-green/10">
+        <h3 class="text-2xl font-bold text-gob-green">Groei &amp; balans</h3>
+        <p class="mt-4 text-base leading-7 text-gray-700">
+          We bouwen stap voor stap aan meer rust, zelfinzicht en een leven waarin je weer meer in harmonie leeft.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="w-full bg-white px-6 py-20 lg:px-8">
+  <div class="mx-auto max-w-7xl">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="text-base font-semibold text-pink-300">Mijn paarden</p>
+      <h2 class="mt-2 text-3xl font-bold tracking-tight text-gob-green sm:text-4xl">
+        Elk paard heeft een eigen energie, karakter en begeleiding
+      </h2>
+    </div>
+
+    <div class="mt-12 grid gap-8 md:grid-cols-3">
+      <article class="rounded-2xl bg-[#f9f9e3] p-8 shadow-lg ring-1 ring-gob-green/10">
+        <div class="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gob-blue text-xl font-bold text-white">
+          P1
+        </div>
+        <h3 class="text-2xl font-bold text-gob-green">Paard 1</h3>
+        <p class="mt-3 text-sm font-medium uppercase tracking-[0.2em] text-pink-300">Rust &amp; veiligheid</p>
+        <p class="mt-4 text-base leading-7 text-gray-700">
+          Dit paard brengt een kalme aanwezigheid en helpt cliënten snel tot rust te komen en vertrouwen te voelen.
+        </p>
+      </article>
+
+      <article class="rounded-2xl bg-[#f9f9e3] p-8 shadow-lg ring-1 ring-gob-green/10">
+        <div class="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gob-green text-xl font-bold text-white">
+          P2
+        </div>
+        <h3 class="text-2xl font-bold text-gob-green">Paard 2</h3>
+        <p class="mt-3 text-sm font-medium uppercase tracking-[0.2em] text-pink-300">Diepte &amp; verbinding</p>
+        <p class="mt-4 text-base leading-7 text-gray-700">
+          Deze paardenpartner helpt bij het zichtbaar maken van gevoelens die moeilijk te benoemen zijn, waardoor er ruimte ontstaat voor eerlijkheid en inzicht.
+        </p>
+      </article>
+
+      <article class="rounded-2xl bg-[#f9f9e3] p-8 shadow-lg ring-1 ring-gob-green/10">
+        <div class="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-pink-300 text-xl font-bold text-white">
+          P3
+        </div>
+        <h3 class="text-2xl font-bold text-gob-green">Paard 3</h3>
+        <p class="mt-3 text-sm font-medium uppercase tracking-[0.2em] text-pink-300">Kracht &amp; beweging</p>
+        <p class="mt-4 text-base leading-7 text-gray-700">
+          Met deze energie kom je vaak dichter bij je eigen grenzen, veerkracht en natuurlijke beweging in leven en denken.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="w-full bg-gob-blue px-6 py-20 lg:px-8">
+  <div class="mx-auto max-w-5xl text-center">
+    <p class="text-base font-semibold uppercase tracking-[0.2em] text-pink-200">Praktijk</p>
+    <h2 class="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+      Wil je weten wat paardencoaching voor jou kan betekenen?
+    </h2>
+    <p class="mt-6 text-lg leading-8 text-white/90">
+      Ik begeleid mensen die behoefte hebben aan rust, ruimte, perspectief en een veilige weg terug naar zichzelf.
+    </p>
+    <div class="mt-8">
+      <a href="/contact" class="inline-flex items-center justify-center rounded-full bg-pink-300 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:opacity-90">
+        Neem contact op
+      </a>
+    </div>
+  </div>
+</section>
+
