@@ -11,7 +11,8 @@ dienst_text:
         type: text
         text: 'Lorum ipsum'
 updated_by: 43a58184-2f3d-4ee7-87eb-a8c39bed2024
-updated_at: 1728987170
+updated_at: 1784291617
 dienst_image:
-  - damien-badjas.png
+  - make-a-image-for-a-hero-section.-the-image-schould-represent-a-mental-coach-that-is-using-horse-to-relfect-on-dirrent-topics.png
+template_field: dienst
 ---
