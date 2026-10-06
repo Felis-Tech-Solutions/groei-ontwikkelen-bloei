@@ -5,7 +5,7 @@ title: Home
 template: home
 hero_image: 457129952_7813890055383588_8257538995948509141_n-(1).jpg
 updated_by: 43a58184-2f3d-4ee7-87eb-a8c39bed2024
-updated_at: 1728995024
+updated_at: 1787814107
 header_tekst:
   -
     type: paragraph
@@ -32,6 +32,63 @@ dienst_uitleg_3: 'Coaching voor persoonlijke groei'
 contact_button: 'Boek nu'
 about_us_button: 'Over ons'
 link_pagina: 'entry::90778dec-1c73-4a77-b3d4-4f00c0ef2ad8'
+diensten_titel: Diensten
+diensten:
+  -
+    id: mrortfqp
+    dienst_titel: 'Rouw & verlies'
+    dienst_afbeelding: make-a-image-for-a-hero-section.-the-image-schould-represent-a-mental-coach-that-is-using-horse-to-relfect-on-dirrent-topics.png
+    dienst_beschrijving: 'beschrijving dienst'
+    dienst_linktekst: 'Meer informatie'
+    type: dienst
+    enabled: true
+    dienst_link: 'entry::4382253a-bf86-451e-a0ea-fb94ff789cd9'
+  -
+    id: mrortmbc
+    dienst_titel: 'Persoonlijke begeleiding'
+    dienst_afbeelding: make-a-image-for-a-hero-section.-the-image-schould-represent-a-mental-coach-that-is-using-horse-to-relfect-on-dirrent-topics.png
+    dienst_beschrijving: 'beschrijving dienst'
+    dienst_linktekst: 'Meer informatie'
+    type: dienst
+    enabled: true
+    dienst_link: 'entry::4382253a-bf86-451e-a0ea-fb94ff789cd9'
+  -
+    id: mrortu6o
+    dienst_titel: 'Burnout / depressie'
+    dienst_afbeelding: make-a-image-for-a-hero-section.-the-image-schould-represent-a-mental-coach-that-is-using-horse-to-relfect-on-dirrent-topics.png
+    dienst_beschrijving: 'beschrijving dienst'
+    dienst_linktekst: 'Meer informatie'
+    type: dienst
+    enabled: true
+    dienst_link: 'entry::4382253a-bf86-451e-a0ea-fb94ff789cd9'
+testimonials_titel: 'Wat mensen ervan vonden'
+testimonials:
+  -
+    id: mroruhw9
+    testimonial_tekst: 'Review tekst'
+    testimonial_naam: 'John Do'
+    testimonial_functie: 'Functie titel'
+    testimonial_afbeelding: make-a-image-for-a-hero-section.-the-image-schould-represent-a-mental-coach-that-is-using-horse-to-relfect-on-dirrent-topics.png
+    type: testimonial
+    enabled: true
+  -
+    id: mrorvg34
+    testimonial_tekst: 'Functie titel'
+    testimonial_naam: 'John Do'
+    testimonial_functie: 'Functie titel'
+    testimonial_afbeelding: make-a-image-for-a-hero-section.-the-image-schould-represent-a-mental-coach-that-is-using-horse-to-relfect-on-dirrent-topics.png
+    type: testimonial
+    enabled: true
+  -
+    id: mtb6cow0
+    testimonial_tekst: 'Functie titel'
+    testimonial_naam: 'John Do'
+    testimonial_functie: 'Functie titel'
+    type: testimonial
+    enabled: true
+cta_titel: 'Geïnteresseerd in wat paardencoaching kan doen?'
+cta_knop_tekst: 'Neem contact op'
+cta_knop_link: '#'
 ---
 ## Welcome to your brand new Statamic site!
 

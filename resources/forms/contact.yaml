@@ -2,5 +2,7 @@ title: Contact
 email:
   -
     id: m3bppyc5
-    to: info@dkdesigns.nl
+    to: Daan@dkdesigns.nl
     subject: 'Nieuwe contactaanvraag'
+    text: contact
+    attachments: true
