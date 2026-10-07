@@ -1,19 +1,24 @@
 ---
-id: 4382253a-bf86-451e-a0ea-fb94ff789cd9
-blueprint: page_general
+id: 23924cc3-f2ae-4200-994e-b3e96334136b
+blueprint: page_diensten
 title: Diensten
-author: 43a58184-2f3d-4ee7-87eb-a8c39bed2024
+template: diensten
+hero_tonen: true
+hero_uitlijning: tekst_links
+hero_knop_tonen: true
+hero_knop_tekst: 'Neem contact op'
+diensten_titel: 'Onze diensten'
+diensten_sortering: handmatig
+diensten_kolommen: '3'
+diensten_afbeelding_tonen: true
+diensten_intro_tonen: true
+diensten_knop_tonen: true
+diensten_knoptekst: 'Meer informatie'
+diensten_hele_kaart_link: true
+diensten_lege_melding: 'Er zijn momenteel nog geen diensten beschikbaar.'
+cta_tonen: true
+cta_titel: 'Benieuwd welke begeleiding bij jou past?'
+cta_knop_tekst: 'Neem contact op'
 updated_by: 43a58184-2f3d-4ee7-87eb-a8c39bed2024
-updated_at: 1784294296
+updated_at: 1791364821
 ---
-Rouw & Verlies
-
-Rouw kent geen vaste route. Het verlies van een dierbare, een relatie, gezondheid of een belangrijke levensfase kan je uit balans brengen. Tijdens de begeleiding is er ruimte voor jouw verhaal, emoties en vragen. De paarden helpen om gevoelens zichtbaar te maken waar woorden soms tekortschieten. Samen zoeken we naar rust, acceptatie en een manier om weer vooruit te kijken zonder het verleden los te hoeven laten.
-
-Persoonlijke Begeleiding
-
-Soms loop je vast zonder precies te weten waarom. Je ervaart stress, onzekerheid of merkt dat je jezelf bent kwijtgeraakt. In een persoonlijk traject kijken we samen naar wat jij nodig hebt om weer in je kracht te komen. Met aandacht, rust en zonder oordeel werken we aan meer zelfvertrouwen, veerkracht en balans in jouw leven.
-
-Coaching
-
-Paardencoaching biedt een unieke manier om inzicht te krijgen in jezelf. Paarden reageren puur en zonder oordeel op jouw gedrag, emoties en energie. Hierdoor ontstaat een eerlijk spiegelbeeld dat helpt om patronen te herkennen en nieuwe inzichten te ontwikkelen. Je hoeft geen ervaring met paarden te hebben; de oefeningen vinden voornamelijk naast het paard plaats en worden volledig afgestemd op jouw behoeften.

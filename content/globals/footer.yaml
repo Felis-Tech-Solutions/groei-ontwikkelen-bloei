@@ -1,0 +1,22 @@
+title: Footer
+data:
+  about_title: 'Over Ons'
+  about_text: 'Bij Groei, Ontwikkelen & Bloei helpen we bedrijven en individuen groeien door middel van paarden coaching. Onze unieke aanpak combineert persoonlijke ontwikkeling met praktische bedrijfsinzichten.'
+  phone: '+31 6 12 34 56 78'
+  email: info@groeiontwikkelenbloei.nl
+  address: Wehl
+  navigation_title: Navigatie
+  legal_title: Content
+  newsletter_title: Nieuwsbrief
+  newsletter_button: Inschrijven
+  newsletter_text: 'Ontvang tips en updates over coaching en persoonlijke ontwikkeling.'
+  socials:
+    -
+      id: muxty6nv
+      platform: facebook
+      url: 'https://www.facebook.com/'
+    -
+      id: muxtyd23
+      platform: instagram
+      url: 'https://www.instagram.com/'
+  copyright_name: 'Groei, Ontwikkelen & Bloei. Alle rechten voorbehouden.'

@@ -1,6 +1,6 @@
 ---
 id: 81492b96-ac9b-4267-93d8-fcf64a136b3c
-blueprint: service
+blueprint: dienst
 title: 'Persoonlijke begeleiding'
 dienst_titel: 'Persoonlijke begeleiding'
 dienst_beschrijving: 'Op maat gemaakte begeleiding voor mensen die meer inzicht willen krijgen in hun gevoelens, keuzes en levensrichting, en die weer grip willen krijgen op hun dagelijks leven.'

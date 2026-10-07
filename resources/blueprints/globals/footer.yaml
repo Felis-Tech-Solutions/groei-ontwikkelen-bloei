@@ -1,0 +1,94 @@
+tabs:
+  main:
+    display: Footer
+    sections:
+      -
+        fields:
+          -
+            handle: about_title
+            field:
+              type: text
+              display: 'Titel over ons'
+          -
+            handle: about_text
+            field:
+              type: textarea
+              display: 'Tekst over ons'
+          -
+            handle: phone
+            field:
+              type: text
+              display: Telefoon
+              width: 33
+          -
+            handle: email
+            field:
+              type: text
+              display: E-mailadres
+              width: 33
+          -
+            handle: address
+            field:
+              type: textarea
+              display: Adres
+              width: 33
+          -
+            handle: navigation_title
+            field:
+              type: text
+              display: 'Titel menu 1'
+              width: 50
+          -
+            handle: legal_title
+            field:
+              type: text
+              display: 'Titel menu 2'
+              width: 50
+          -
+            handle: newsletter_title
+            field:
+              type: text
+              display: 'Titel nieuwsbrief'
+              width: 50
+          -
+            handle: newsletter_button
+            field:
+              type: text
+              display: 'Knoptekst nieuwsbrief'
+              width: 50
+          -
+            handle: newsletter_text
+            field:
+              type: textarea
+              display: 'Tekst nieuwsbrief'
+          -
+            handle: socials
+            field:
+              type: grid
+              display: 'Social media'
+              add_row: 'Social toevoegen'
+              fields:
+                -
+                  handle: platform
+                  field:
+                    type: select
+                    display: Platform
+                    width: 33
+                    options:
+                      facebook: Facebook
+                      instagram: Instagram
+                -
+                  handle: url
+                  field:
+                    type: text
+                    display: URL
+                    input_type: url
+                    width: 66
+                    validate:
+                      - required
+                      - url
+          -
+            handle: copyright_name
+            field:
+              type: text
+              display: 'Naam in copyright'

@@ -1,6 +1,6 @@
 ---
 id: a2a1873c-1dc8-421c-9b9a-63e94d4dd9c5
-blueprint: service
+blueprint: dienst
 title: 'Rouw & verlies'
 dienst_titel: 'Rouw & verlies'
 dienst_beschrijving: 'Een veilige en ondersteunende omgeving om verlies, afscheid en rouw te verwerken zonder druk, zonder oordeel en met respect voor jouw eigen tempo.'
