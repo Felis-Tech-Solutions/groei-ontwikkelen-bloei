@@ -127,14 +127,7 @@
           {{ /if }}
 
             {{ hero_afbeelding }}
-              <img
-                class="aspect-[4/3] w-full rounded-2xl object-cover shadow-lg"
-                src="{{ url }}"
-                alt="{{ alt ?? hero_titel ?? title }}"
-                width="{{ width }}"
-                height="{{ height }}"
-                fetchpriority="high"
-              >
+              {{ partial:afbeelding class="aspect-[4/3] w-full rounded-2xl object-cover shadow-lg" :alt="alt ?? hero_titel ?? title" sizes="(min-width: 1024px) 600px, 100vw" loading="eager" fetchpriority="high" }}
             {{ /hero_afbeelding }}
 
           </div>
@@ -201,27 +194,22 @@
 
           {{ if diensten_afbeelding_tonen }}
 
+            {{# Binnen de afbeelding verwijst permalink naar het bestand; daarom eerst de dienst-URL bewaren. #}}
+            {{ dienst_url = permalink }}
             {{ if dienst_hero_afbeelding }}
 
               {{ dienst_hero_afbeelding }}
 
                 {{ if diensten_hele_kaart_link }}
                   <a
-                    href="{{ permalink }}"
+                    href="{{ dienst_url }}"
                     class="block"
                     tabindex="-1"
                     aria-hidden="true"
                   >
                 {{ /if }}
 
-                <img
-                  class="aspect-[3/2] w-full rounded-2xl object-cover"
-                  src="{{ url }}"
-                  alt="{{ alt ?? dienst_titel ?? title }}"
-                  width="{{ width }}"
-                  height="{{ height }}"
-                  loading="lazy"
-                >
+                {{ partial:afbeelding class="aspect-[3/2] w-full rounded-2xl object-cover" :alt="alt ?? dienst_titel ?? title" sizes="(min-width: 1024px) 384px, (min-width: 640px) 50vw, 100vw" max="800" }}
 
                 {{ if diensten_hele_kaart_link }}
                   </a>

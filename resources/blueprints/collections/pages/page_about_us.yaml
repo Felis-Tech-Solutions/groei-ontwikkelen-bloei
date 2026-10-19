@@ -14,12 +14,6 @@ tabs:
               validate:
                 - required
               display: 'Titel pagina'
-          -
-            handle: subtitel_tekst
-            field:
-              type: text
-              display: 'Subtitel tekst'
-              width: 50
       -
         display: Header
         instructions: 'De grote blauwe kop bovenaan de pagina.'
@@ -233,16 +227,6 @@ tabs:
               collections:
                 - pages
               width: 50
-      -
-        display: 'Oude tekst'
-        instructions: 'Wordt niet meer op de pagina getoond.'
-        fields:
-          -
-            handle: over_ons_tekst
-            field:
-              remove_empty_nodes: false
-              type: bard
-              display: 'Over ons tekst'
   sidebar:
     display: Sidebar
     sections:

@@ -79,6 +79,43 @@ if (notice) {
     }
 }
 
+// Slider (testimonials): schuift per kaart en stopt bij de laatste volledig zichtbare kaart.
+document.querySelectorAll('[data-slider]').forEach((slider) => {
+    const track = slider.querySelector('[data-slider-track]');
+    const items = [...slider.querySelectorAll('[data-slider-item]')];
+    const prev = slider.querySelector('[data-slider-prev]');
+    const next = slider.querySelector('[data-slider-next]');
+
+    if (!track || !items.length || !prev || !next) {
+        return;
+    }
+
+    let index = 0;
+
+    const layout = () => {
+        const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+        const step = items[0].getBoundingClientRect().width + gap;
+        const visible = Math.max(1, Math.round((track.parentElement.clientWidth + gap) / step));
+        const maxIndex = Math.max(0, items.length - visible);
+
+        index = Math.min(index, maxIndex);
+        track.style.transform = `translateX(${-index * step}px)`;
+
+        const nodig = maxIndex > 0;
+        prev.classList.toggle('hidden', !nodig);
+        next.classList.toggle('hidden', !nodig);
+        prev.disabled = index === 0;
+        next.disabled = index === maxIndex;
+
+        items.forEach((item, i) => item.setAttribute('aria-hidden', String(i < index || i >= index + visible)));
+    };
+
+    prev.addEventListener('click', () => { index = Math.max(0, index - 1); layout(); });
+    next.addEventListener('click', () => { index += 1; layout(); });
+    window.addEventListener('resize', layout);
+    layout();
+});
+
 // Mobiel menu openen en sluiten.
 if (mobileMenu && menuButton) {
     const setMenu = (open) => {

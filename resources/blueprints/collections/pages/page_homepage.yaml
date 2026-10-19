@@ -98,49 +98,6 @@ tabs:
               type: text
               display: 'Diensten titel'
               default: Diensten
-          -
-            handle: diensten
-            field:
-              type: replicator
-              display: Diensten
-              collapse: false
-              sets:
-                diensten:
-                  display: Diensten
-                  sets:
-                    dienst:
-                      display: Dienst
-                      fields:
-                        -
-                          handle: dienst_titel
-                          field:
-                            type: text
-                            display: Titel
-                            validate:
-                              - required
-                        -
-                          handle: dienst_afbeelding
-                          field:
-                            type: assets
-                            display: Afbeelding
-                            container: assets
-                            max_files: 1
-                        -
-                          handle: dienst_beschrijving
-                          field:
-                            type: textarea
-                            display: Beschrijving
-                        -
-                          handle: dienst_link
-                          field:
-                            type: link
-                            display: Link
-                        -
-                          handle: dienst_linktekst
-                          field:
-                            type: text
-                            display: Linktekst
-                            default: 'Meer informatie'
 
       -
         display: 'Wat mensen ervan vonden'

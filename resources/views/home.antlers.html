@@ -21,17 +21,12 @@
               {{ collection:services sort="title:asc" }}
                 <li class="flex h-full flex-col rounded-lg p-6 shadow-lg transition-transform duration-200 hover:scale-105">
 
+                  {{# Binnen de afbeelding verwijst permalink naar het bestand; daarom eerst de dienst-URL bewaren. #}}
+                  {{ dienst_url = permalink }}
                   {{ if dienst_hero_afbeelding }}
                     {{ dienst_hero_afbeelding }}
-                      <a href="{{ permalink }}" class="block" tabindex="-1" aria-hidden="true">
-                        <img
-                          class="aspect-[3/2] w-full rounded-2xl object-cover"
-                          src="{{ url }}"
-                          alt="{{ alt ?? dienst_titel ?? title }}"
-                          width="{{ width }}"
-                          height="{{ height }}"
-                          loading="lazy"
-                        >
+                      <a href="{{ dienst_url }}" class="block" tabindex="-1" aria-hidden="true">
+                        {{ partial:afbeelding class="aspect-[3/2] w-full rounded-2xl object-cover" :alt="alt ?? dienst_titel ?? title" sizes="(min-width: 1024px) 384px, (min-width: 640px) 50vw, 100vw" max="800" }}
                       </a>
                     {{ /dienst_hero_afbeelding }}
                   {{ /if }}
@@ -63,110 +58,77 @@
         </div>
       </div>
     
-    <div class="mb-8 text-center">
-  <h2 class="text-3xl font-bold tracking-tight text-gob-green sm:text-4xl">
-    {{ testimonials_titel ?? 'Wat mensen ervan vonden' }}
-  </h2>
-</div>
-
-{{ if testimonials }}
-  <div
-    id="testimonial-slider"
-    class="container relative mx-auto w-full overflow-hidden"
-  >
-    <div
-      id="slides"
-      class="flex transition-transform duration-300"
-    >
-      {{ testimonials }}
-        <figure class="m-2 box-border w-full flex-shrink-0 rounded-lg bg-pink-300 p-6 md:w-1/3">
-
-          {{ if testimonial_tekst }}
-            <blockquote class="mt-2 text-base leading-7 text-gray-900 sm:text-lg sm:leading-8">
-              <p>“{{ testimonial_tekst }}”</p>
-            </blockquote>
-          {{ /if }}
-
-          <figcaption class="mt-10 flex items-end justify-between gap-x-6">
-            <div class="text-sm leading-6">
-
-              {{ if testimonial_naam }}
-                <div class="font-semibold text-gray-900">
-                  {{ testimonial_naam }}
-                </div>
-              {{ /if }}
-
-              {{ if testimonial_functie }}
-                <div class="mt-0.5 text-gray-600">
-                  {{ testimonial_functie }}
-                </div>
-              {{ /if }}
-
-            </div>
-
-            {{ if testimonial_afbeelding }}
-              {{ testimonial_afbeelding }}
-                <img
-                  class="h-12 w-12 rounded-full bg-gray-50 object-cover"
-                  src="{{ url }}"
-                  alt="{{ alt ?? testimonial_naam }}"
-                  loading="lazy"
-                >
-              {{ /testimonial_afbeelding }}
-            {{ /if }}
-
-          </figcaption>
-        </figure>
-      {{ /testimonials }}
-    </div>
-
-      {{ if testimonials | count > 1 }}
-      <div class="absolute inset-y-0 left-0 flex items-center">
-        <button
-          id="prevBtn"
-          type="button"
-          class="rounded-full bg-white p-2 shadow-md hover:bg-gray-200"
-          aria-label="Vorige testimonial"
-        >
-          &lt;
-        </button>
+    {{ if testimonials }}
+      <div class="mb-8 text-center">
+        <h2 class="text-3xl font-bold tracking-tight text-gob-green sm:text-4xl">
+          {{ testimonials_titel ?? 'Wat mensen ervan vonden' }}
+        </h2>
       </div>
 
-      <div class="absolute inset-y-0 right-0 flex items-center">
-        <button
-          id="nextBtn"
-          type="button"
-          class="rounded-full bg-white p-2 shadow-md hover:bg-gray-200"
-          aria-label="Volgende testimonial"
-        >
-          &gt;
+      {{# Slider: schuift per kaart; knoppen alleen als er meer kaarten zijn dan passen (zie site.js). #}}
+      <div class="relative mx-auto max-w-7xl px-6 lg:px-8" data-slider>
+        <div class="overflow-hidden">
+          <div class="flex gap-4 transition-transform duration-300 motion-reduce:transition-none" data-slider-track>
+            {{ testimonials }}
+              <figure class="flex w-full flex-shrink-0 flex-col justify-between rounded-lg bg-pink-300 p-6 md:w-[calc((100%-1rem)/2)] lg:w-[calc((100%-2rem)/3)]" data-slider-item>
+
+                {{ if testimonial_tekst }}
+                  <blockquote class="mt-2 text-base leading-7 text-gray-900 sm:text-lg sm:leading-8">
+                    <p>“{{ testimonial_tekst }}”</p>
+                  </blockquote>
+                {{ /if }}
+
+                <figcaption class="mt-10 flex items-end justify-between gap-x-6">
+                  <div class="text-sm leading-6">
+                    {{ if testimonial_naam }}
+                      <div class="font-semibold text-gray-900">{{ testimonial_naam }}</div>
+                    {{ /if }}
+                    {{ if testimonial_functie }}
+                      <div class="mt-0.5 text-gray-700">{{ testimonial_functie }}</div>
+                    {{ /if }}
+                  </div>
+
+                  {{ if testimonial_afbeelding }}
+                    {{ testimonial_afbeelding }}
+                      <img
+                        class="h-12 w-12 rounded-full bg-gray-50 object-cover"
+                        src="{{ glide :src="url" width="96" height="96" fit="crop_focal" format="webp" quality="80" }}"
+                        alt="{{ alt ?? testimonial_naam }}"
+                        width="48"
+                        height="48"
+                        loading="lazy"
+                        decoding="async"
+                      >
+                    {{ /testimonial_afbeelding }}
+                  {{ /if }}
+                </figcaption>
+              </figure>
+            {{ /testimonials }}
+          </div>
+        </div>
+
+        <button type="button" class="absolute left-0 top-1/2 hidden -translate-y-1/2 rounded-full bg-white p-3 shadow-md transition hover:bg-gray-100 disabled:opacity-40" aria-label="Vorige testimonial" data-slider-prev>
+          <span aria-hidden="true">&larr;</span>
+        </button>
+        <button type="button" class="absolute right-0 top-1/2 hidden -translate-y-1/2 rounded-full bg-white p-3 shadow-md transition hover:bg-gray-100 disabled:opacity-40" aria-label="Volgende testimonial" data-slider-next>
+          <span aria-hidden="true">&rarr;</span>
         </button>
       </div>
     {{ /if }}
-  </div>
-{{ /if }}
-    
-    
-    <script>
-      const slides = document.getElementById('slides');
-      const totalSlides = document.querySelectorAll('#slides figure').length;
-      let currentIndex = 0;
-    
-      document.getElementById('nextBtn').addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % totalSlides;
-        updateSlider();
-      });
-    
-      document.getElementById('prevBtn').addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-        updateSlider();
-      });
-    
-      function updateSlider() {
-        const slideWidth = slides.clientWidth; // Width of the slider container
-        const offset = -currentIndex * slideWidth; // Calculate the new offset
-        slides.style.transform = `translateX(${offset}px)`; // Update the transform property
-      }
-    </script>
-        
+
+    {{# Afsluitend blok (CMS: Homepage → CTA sectie). #}}
+    {{ if cta_titel }}
+      <div class="mx-auto mt-24 max-w-5xl rounded-3xl bg-gob-blue px-6 py-16 text-center sm:px-12">
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">{{ cta_titel }}</h2>
+        {{ if cta_tekst }}
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/90">{{ cta_tekst }}</p>
+        {{ /if }}
+        <div class="mt-8">
+          <a href="{{ if cta_knop_link }}{{ cta_knop_link }}{{ else }}/contact{{ /if }}" class="inline-flex items-center rounded-full bg-pink-300 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-pink-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+            {{ cta_knop_tekst ?? 'Neem contact op' }} <span class="ml-2" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    {{ /if }}
+
   </section>

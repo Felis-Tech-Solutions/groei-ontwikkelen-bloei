@@ -33,9 +33,9 @@
 
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
       <a
-        href="/contact"
+        href="{{ if footer:boek_knop_link }}{{ footer:boek_knop_link }}{{ else }}/contact{{ /if }}"
         class="rounded-md bg-pink-300 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-pink-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-      >Boek nu</a>
+      >{{ footer:boek_knop_tekst ?? 'Boek nu' }}</a>
     </div>
 
     <div class="flex lg:hidden">
@@ -82,7 +82,7 @@
             {{ /nav }}
           </ul>
           <div class="py-6">
-            <a href="/contact" class="block rounded-md bg-pink-300 px-3 py-3 text-center text-base font-semibold text-white hover:bg-pink-400">Boek nu</a>
+            <a href="{{ if footer:boek_knop_link }}{{ footer:boek_knop_link }}{{ else }}/contact{{ /if }}" class="block rounded-md bg-pink-300 px-3 py-3 text-center text-base font-semibold text-white hover:bg-pink-400">{{ footer:boek_knop_tekst ?? 'Boek nu' }}</a>
           </div>
         </div>
       </div>
@@ -116,7 +116,7 @@
         {{ if hero_image }}
           <div class="md:w-1/2">
             {{ hero_image }}
-              <img src="{{ url }}" alt="{{ alt ?? '' }}" width="{{ width }}" height="{{ height }}" class="h-auto w-full rounded-2xl object-cover" fetchpriority="high">
+              {{ partial:afbeelding class="h-auto w-full rounded-2xl object-cover" :alt="alt ?? ''" sizes="(min-width: 768px) 50vw, 100vw" loading="eager" fetchpriority="high" }}
             {{ /hero_image }}
           </div>
         {{ /if }}

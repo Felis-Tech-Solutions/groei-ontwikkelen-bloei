@@ -4,29 +4,29 @@
         {{ unless header_title }}
             <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">{{ title }}</h1>
         {{ /unless }}
-        {{ if header_text }}
-            <div class="mt-6 text-lg leading-8 text-gray-600 prose break-words">{{ header_text }}</div>
+        {{# Introductietekst uit het CMS (veld "Introductietekst"), anders de standaardtekst. #}}
+        {{ if contact }}
+            <div class="prose prose-lg mx-auto mt-6 max-w-3xl text-gray-700">{{ contact }}</div>
+        {{ else }}
+            <p class="mx-auto mb-10 mt-6 max-w-3xl text-lg leading-8 text-gray-700">
+                Sta je open voor begeleiding met behulp van paardencoaching, of heb je vragen over mijn werkwijze? Ik sta klaar om je te helpen. Vul het contactformulier in en ik neem zo snel mogelijk contact met je op. Samen kijken we hoe we een passend traject kunnen vormgeven dat aansluit bij jouw behoeften en doelen.
+                Ik kijk ernaar uit om je te ontmoeten en samen een stap te zetten richting meer rust, veerkracht en balans.
+            </p>
         {{ /if }}
-        <p class="text-gray-600 max-w-3xl mx-auto mb-10">
-            Sta je open voor begeleiding met behulp van paardencoaching, of heb je vragen over mijn werkwijze? Ik sta klaar om je te helpen. Vul het contactformulier in en ik neem zo snel mogelijk contact met je op. Samen kijken we hoe we een passend traject kunnen vormgeven dat aansluit bij jouw behoeften en doelen.
-Ik kijk ernaar uit om je te ontmoeten en samen een stap te zetten richting meer rust, veerkracht en balans.
-        </p>
     </div>
 </div>
 <div class="px-6 lg:px-8 py-12 sm:py-24">
     <div class="mx-auto max-w-3xl bg-white p-4 lg:p-6 rounded-xl shadow-sm border border-gray-50">
         {{ form:create formset="contact" }}
             {{ if success }}
-            <div class="border-2 border-gob-blue text-gob-blue p-2 my-4 rounded flex items-center space-x-10">
-                <p>
-                    Je contactaanvraag is verzonden!
-                </p>
+            <div class="my-4 rounded-lg border-2 border-gob-blue p-4 text-gob-blue" role="status">
+                <p>{{ formulier_succes ?? 'Bedankt! Je bericht is verzonden. Ik neem zo snel mogelijk contact met je op.' }}</p>
             </div>
             {{ /if }}
 
             {{ if errors }}
-            <div class="bg-red-500 text-white p-2 my-4 rounded">
-                Er is iets misgegaan
+            <div class="my-4 rounded-lg bg-red-600 p-4 text-white" role="alert">
+                {{ formulier_fout ?? 'Er ging iets mis. Controleer de velden hieronder en probeer het opnieuw.' }}
             </div>
             {{ /if }}
 
@@ -34,10 +34,10 @@ Ik kijk ernaar uit om je te ontmoeten en samen een stap te zetten richting meer 
                 {{ fields }}
                     {{ if display !== 'Turnstile Field'}}
                         <div class="p-2">
-                            <label>{{ display }}</label>
+                            <label for="contact-form-{{ handle }}-field">{{ display }}</label>
                             <div class="form-input-wrapper">{{ field }}</div>
                             {{ if error }}
-                            <p class="text-gray-500">{{ error }}</p>
+                            <p class="mt-1 text-sm text-red-700">{{ error }}</p>
                             {{ /if }}
                         </div>
                     {{ /if }}
@@ -54,9 +54,9 @@ Ik kijk ernaar uit om je te ontmoeten en samen een stap te zetten richting meer 
                 {{ /fields }}
                 <button
                     type="submit"
-                    class="inline-flex items-center gap-x-1.5 rounded-md bg-pink-300 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 transition duration-200 ease-in"
+                    class="inline-flex items-center gap-x-1.5 rounded-md bg-pink-300 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gob-blue transition duration-200 ease-in"
                 >
-                    Verzenden
+                    {{ formulier_knoptekst ?? 'Verzenden' }}
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"

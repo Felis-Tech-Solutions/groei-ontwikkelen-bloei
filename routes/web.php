@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-// Route::statamic('example', 'example-view', [
-//    'title' => 'Example'
-// ]);
+// Sitemap voor zoekmachines met alle gepubliceerde pagina's en diensten.
+Route::statamic('sitemap.xml', 'sitemap', [
+    'layout' => null,
+    'content_type' => 'application/xml',
+]);

@@ -1,7 +1,8 @@
 {{#
-  Melding "Website in ontwikkeling". Staat standaard verborgen; resources/js/site.js
-  toont hem alleen als de bezoeker hem nog niet heeft weggeklikt.
+  Melding bij bezoek (Globals → Footer → Header & melding). Staat standaard verborgen;
+  resources/js/site.js toont hem alleen als de bezoeker hem nog niet heeft weggeklikt.
 #}}
+{{ unless footer:melding_tonen === false }}
 <div
   id="site-notice"
   class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/40 p-6"
@@ -11,14 +12,15 @@
   data-site-notice
 >
   <div class="w-full max-w-lg rounded-2xl bg-white p-8 text-center text-[#32281E] shadow-2xl">
-    <h2 id="site-notice-titel" class="text-2xl font-bold sm:text-3xl">Website in ontwikkeling</h2>
+    <h2 id="site-notice-titel" class="text-2xl font-bold sm:text-3xl">{{ footer:melding_titel ?? 'Website in ontwikkeling' }}</h2>
     <p class="mt-3 text-lg leading-relaxed">
-      We werken op dit moment aan de website. Hierdoor kan sommige informatie tijdelijk ontbreken of wijzigen.
+      {{ footer:melding_tekst ?? 'We werken op dit moment aan de website. Hierdoor kan sommige informatie tijdelijk ontbreken of wijzigen.' }}
     </p>
     <button
       type="button"
       class="mt-6 rounded-full bg-gob-blue px-6 py-3 text-base font-bold text-white transition hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gob-blue"
       data-site-notice-close
-    >Ik begrijp het</button>
+    >{{ footer:melding_knoptekst ?? 'Ik begrijp het' }}</button>
   </div>
 </div>
+{{ /unless }}

@@ -67,7 +67,7 @@ return [
         |
         */
 
-        'cache' => false,
+        'cache' => env('STATAMIC_GLIDE_CACHE', true),
         'cache_path' => public_path('img'),
 
         /*

@@ -19,3 +19,15 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
+
+# Browsercache. Bestanden in /build en /img hebben een unieke naam per versie,
+# dus die mogen lang bewaard worden; overige afbeeldingen en iconen een maand.
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css|js|woff2?)$">
+        Header set Cache-Control "public, max-age=31536000, immutable" "expr=%{REQUEST_URI} =~ m#^/build/#"
+    </FilesMatch>
+    <FilesMatch "\.(webp|avif|jpe?g|png|gif|svg|ico)$">
+        Header set Cache-Control "public, max-age=31536000, immutable" "expr=%{REQUEST_URI} =~ m#^/img/#"
+        Header set Cache-Control "public, max-age=2592000" "expr=%{REQUEST_URI} !~ m#^/img/#"
+    </FilesMatch>
+</IfModule>
