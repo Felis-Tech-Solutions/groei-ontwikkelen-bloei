@@ -1,0 +1,29 @@
+# Bestanden en mappen die NIET naar de server gaan en daar ook nooit
+# verwijderd worden. Alles wat via het Statamic-dashboard op de live site
+# wordt aangepast, hoort hier te staan, anders overschrijft een deploy het.
+
+# Content die op de live site wordt beheerd
+/content/
+/users/
+/public/assets/
+/resources/forms/
+/storage/
+
+# Serverconfiguratie
+/.env
+/.env.*
+/public/storage
+/public/.user.ini
+
+# Alleen nodig voor ontwikkeling
+/.git/
+/.github/
+/node_modules/
+/tests/
+/docker/
+/docker-compose.yml
+/phpunit.xml
+/.editorconfig
+/.gitattributes
+/.gitignore
+/.nvmrc

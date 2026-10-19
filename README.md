@@ -1,3 +1,11 @@
+# Groei, Ontwikkelen & Bloei
+
+Website van groeiontwikkelenbloei.nl, gebouwd met Statamic.
+
+Hoe wijzigingen live komen staat in [docs/DEPLOY.md](docs/DEPLOY.md).
+
+---
+
 <p align="center"><img src="https://statamic.com/assets/branding/Statamic-Logo+Wordmark-Rad.svg" width="400" alt="Statamic Logo" /></p>
 
 ## About Statamic
