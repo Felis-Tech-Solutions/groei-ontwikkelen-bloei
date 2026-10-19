@@ -4,6 +4,44 @@
 
 /* This is all you. */
 
+/* Vaste header: verdwijnt bij naar beneden scrollen, komt compact terug bij omhoog scrollen. */
+@layer components {
+    .site-header {
+        transition: transform 300ms ease, box-shadow 300ms ease;
+    }
+    .site-nav {
+        @apply py-4 lg:py-5;
+        transition: padding 300ms ease;
+    }
+    .site-logo {
+        @apply h-16 lg:h-24;
+        transition: height 300ms ease;
+    }
+    .site-header-spacer {
+        @apply h-24 lg:h-[8.5rem];
+    }
+    .site-header.is-compact {
+        @apply shadow-lg;
+    }
+    .site-header.is-compact .site-nav {
+        @apply py-2;
+    }
+    .site-header.is-compact .site-logo {
+        @apply h-11 lg:h-12;
+    }
+    .site-header.is-hidden {
+        transform: translateY(-100%);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .site-header,
+        .site-nav,
+        .site-logo {
+            transition: none;
+        }
+    }
+}
+
 @layer base{
     .form-input-wrapper{
         *{
