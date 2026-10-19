@@ -102,12 +102,12 @@
           {{ /if }}
           <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
             {{ if contact_button }}
-              <a href="{{ contact_button_link ?? link_pagina ?? '/contact' }}" class="rounded-md bg-pink-300 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-pink-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+              <a href="{{ if contact_button_link }}{{ contact_button_link }}{{ else }}/contact{{ /if }}" class="rounded-md bg-pink-300 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-pink-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
                 {{ contact_button }}
               </a>
             {{ /if }}
             {{ if about_us_button }}
-              <a href="{{ about_us_button_link ?? '/over-ons' }}" class="text-sm font-semibold leading-6 text-white">
+              <a href="{{ if about_us_button_link }}{{ about_us_button_link }}{{ else }}/over-ons{{ /if }}" class="text-sm font-semibold leading-6 text-white">
                 {{ about_us_button }} <span aria-hidden="true">→</span>
               </a>
             {{ /if }}

@@ -37,6 +37,48 @@ if (header) {
     update();
 }
 
+// Melding "Website in ontwikkeling": alleen tonen tot de bezoeker hem wegklikt.
+const notice = document.querySelector('[data-site-notice]');
+
+if (notice) {
+    const key = 'gob-site-notice-gezien';
+    const seen = () => {
+        try {
+            return window.localStorage.getItem(key) === '1';
+        } catch {
+            return false;
+        }
+    };
+
+    if (!seen()) {
+        const close = () => {
+            notice.classList.add('hidden');
+            notice.classList.remove('flex');
+            try {
+                window.localStorage.setItem(key, '1');
+            } catch {
+                // Opslag niet beschikbaar (privévenster): melding komt bij de volgende pagina terug.
+            }
+        };
+
+        notice.classList.remove('hidden');
+        notice.classList.add('flex');
+        notice.querySelector('[data-site-notice-close]')?.focus();
+
+        notice.querySelector('[data-site-notice-close]')?.addEventListener('click', close);
+        notice.addEventListener('click', (event) => {
+            if (event.target === notice) {
+                close();
+            }
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && !notice.classList.contains('hidden')) {
+                close();
+            }
+        });
+    }
+}
+
 // Mobiel menu openen en sluiten.
 if (mobileMenu && menuButton) {
     const setMenu = (open) => {

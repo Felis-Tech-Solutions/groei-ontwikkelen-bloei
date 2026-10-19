@@ -282,30 +282,7 @@ tabs:
         display: Zoekmachines
         fields:
           -
-            handle: seo_titel
-            field:
-              type: text
-              display: SEO-titel
-              instructions: 'Laat leeg om de paginatitel te gebruiken.'
-              character_limit: 60
-
-          -
-            handle: seo_beschrijving
-            field:
-              type: textarea
-              display: Meta-omschrijving
-              character_limit: 160
-
-          -
-            handle: seo_afbeelding
-            field:
-              type: assets
-              display: Deelafbeelding
-              instructions: 'Afbeelding voor delen via sociale media.'
-              container: assets
-              max_files: 1
-              mode: grid
-
+            import: seo
   sidebar:
     display: Sidebar
     sections:
