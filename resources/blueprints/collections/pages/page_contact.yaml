@@ -13,12 +13,67 @@ tabs:
               width: 50
               validate:
                 - required
+              display: "Titel pagina"
           -
             handle: contact
             field:
               remove_empty_nodes: false
               type: bard
-              display: contact
+              display: Introductietekst
+              instructions: "Tekst boven het contactformulier. Leeg laten toont de standaardtekst."
+      -
+        display: Header
+        instructions: "De grote blauwe kop bovenaan de pagina."
+        fields:
+          -
+            handle: header_title
+            field:
+              type: text
+              display: "Header titel"
+              width: 50
+          -
+            handle: contact_button
+            field:
+              type: text
+              display: Knoptekst
+              default: "Boek nu"
+              width: 50
+          -
+            handle: header_tekst
+            field:
+              type: textarea
+              display: "Header tekst"
+          -
+            handle: hero_image
+            field:
+              type: assets
+              container: assets
+              max_files: 1
+              display: "Header afbeelding"
+      -
+        display: Formulier
+        instructions: "Teksten rond het contactformulier. Leeg laten toont de standaardtekst."
+        fields:
+          -
+            handle: formulier_knoptekst
+            field:
+              type: text
+              display: Verzendknop
+              placeholder: Verzenden
+              width: 33
+          -
+            handle: formulier_succes
+            field:
+              type: text
+              display: "Melding na verzenden"
+              placeholder: "Bedankt! Je bericht is verzonden. Ik neem zo snel mogelijk contact met je op."
+              width: 66
+          -
+            handle: formulier_fout
+            field:
+              type: text
+              display: "Melding bij een fout"
+              placeholder: "Er ging iets mis. Controleer de velden hieronder en probeer het opnieuw."
   sidebar:
     display: Sidebar
     sections:

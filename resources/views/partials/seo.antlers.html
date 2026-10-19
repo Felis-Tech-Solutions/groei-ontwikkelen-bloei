@@ -1,6 +1,6 @@
 {{#
-  Titel, meta-omschrijving en deelgegevens. Gebruikt de velden uit het tabblad SEO;
-  zijn die leeg, dan de paginatitel en de intro van een dienst of een standaardtekst.
+  Titel, meta-omschrijving, deelgegevens en gestructureerde data.
+  Per pagina: tabblad SEO. Standaardwaarden: Globals → Footer → Zoekmachines & 404.
 #}}
 {{ if seo_titel }}
   {{ pagina_titel = seo_titel }}
@@ -12,22 +12,51 @@
   {{ omschrijving = seo_beschrijving }}
 {{ elseif dienst_intro }}
   {{ omschrijving = dienst_intro | strip_tags }}
+{{ elseif footer:seo_standaard_omschrijving }}
+  {{ omschrijving = footer:seo_standaard_omschrijving }}
 {{ else }}
   {{ omschrijving = 'Paardencoaching bij rouw en verlies, burn-out en persoonlijke groei. Een veilige ruimte voor herstel, groei en balans.' }}
 {{ /if }}
 
 <title>{{ if pagina_titel && segment_1 }}{{ pagina_titel }} | {{ /if }}{{ site:name }}</title>
 <meta name="description" content="{{ omschrijving | trim | safe_truncate(160) | entities }}">
+{{ if seo_noindex }}
+  <meta name="robots" content="noindex, follow">
+{{ /if }}
 <link rel="canonical" href="{{ current_url }}">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="nl_NL">
 <meta property="og:site_name" content="{{ site:name | entities }}">
-<meta property="og:title" content="{{ if pagina_titel }}{{ pagina_titel | entities }}{{ else }}{{ site:name | entities }}{{ /if }}">
+<meta property="og:title" content="{{ if pagina_titel && segment_1 }}{{ pagina_titel | entities }}{{ else }}{{ site:name | entities }}{{ /if }}">
 <meta property="og:description" content="{{ omschrijving | trim | safe_truncate(200) | entities }}">
 <meta property="og:url" content="{{ current_url }}">
+<meta name="twitter:card" content="summary_large_image">
 {{ if seo_afbeelding }}
-  {{ seo_afbeelding }}<meta property="og:image" content="{{ permalink }}">{{ /seo_afbeelding }}
+  {{ seo_afbeelding }}<meta property="og:image" content="{{ glide :src="url" width="1200" height="630" fit="crop_focal" absolute="true" }}">{{ /seo_afbeelding }}
 {{ elseif hero_image }}
-  {{ hero_image }}<meta property="og:image" content="{{ permalink }}">{{ /hero_image }}
+  {{ hero_image }}<meta property="og:image" content="{{ glide :src="url" width="1200" height="630" fit="crop_focal" absolute="true" }}">{{ /hero_image }}
 {{ elseif dienst_hero_afbeelding }}
-  {{ dienst_hero_afbeelding }}<meta property="og:image" content="{{ permalink }}">{{ /dienst_hero_afbeelding }}
+  {{ dienst_hero_afbeelding }}<meta property="og:image" content="{{ glide :src="url" width="1200" height="630" fit="crop_focal" absolute="true" }}">{{ /dienst_hero_afbeelding }}
+{{ elseif footer:seo_standaard_afbeelding }}
+  {{ footer:seo_standaard_afbeelding }}<meta property="og:image" content="{{ glide :src="url" width="1200" height="630" fit="crop_focal" absolute="true" }}">{{ /footer:seo_standaard_afbeelding }}
 {{ /if }}
+
+{{# Gestructureerde data: laat zoekmachines weten wie en waar je bent. #}}
+{{ basis_url = config:app.url | ensure_right("/") }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": {{ site:name | to_json }},
+  "url": "{{ basis_url }}",
+  "logo": "{{ basis_url }}images/logo.svg",
+  "description": {{ omschrijving | trim | to_json }}{{ if footer:phone }},
+  "telephone": {{ footer:phone | to_json }}{{ /if }}{{ if footer:email }},
+  "email": {{ footer:email | to_json }}{{ /if }}{{ if footer:address }},
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": {{ footer:address | to_json }},
+    "addressCountry": "NL"
+  }{{ /if }}
+}
+</script>

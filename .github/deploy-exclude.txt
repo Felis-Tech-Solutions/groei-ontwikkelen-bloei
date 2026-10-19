@@ -7,6 +7,9 @@
 /users/
 /public/assets/
 /resources/forms/
+
+# Door de server gegenereerde bestanden (verkleinde afbeeldingen van Glide)
+/public/img/
 /storage/
 
 # Serverconfiguratie

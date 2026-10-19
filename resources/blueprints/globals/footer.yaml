@@ -92,3 +92,95 @@ tabs:
             field:
               type: text
               display: 'Naam in copyright'
+  header:
+    display: 'Header & melding'
+    sections:
+      -
+        display: 'Knop rechtsboven'
+        fields:
+          -
+            handle: boek_knop_tekst
+            field:
+              type: text
+              display: Knoptekst
+              placeholder: 'Boek nu'
+              width: 50
+          -
+            handle: boek_knop_link
+            field:
+              type: link
+              display: Knoplink
+              instructions: 'Leeg laten gaat naar de contactpagina.'
+              collections:
+                - pages
+              width: 50
+      -
+        display: 'Melding bij bezoek'
+        instructions: 'Pop-up die bezoekers één keer te zien krijgen.'
+        fields:
+          -
+            handle: melding_tonen
+            field:
+              type: toggle
+              display: 'Melding tonen'
+              default: true
+          -
+            handle: melding_titel
+            field:
+              type: text
+              display: Titel
+              placeholder: 'Website in ontwikkeling'
+              if:
+                melding_tonen: 'equals true'
+          -
+            handle: melding_tekst
+            field:
+              type: textarea
+              display: Tekst
+              placeholder: 'We werken op dit moment aan de website. Hierdoor kan sommige informatie tijdelijk ontbreken of wijzigen.'
+              if:
+                melding_tonen: 'equals true'
+          -
+            handle: melding_knoptekst
+            field:
+              type: text
+              display: Knoptekst
+              placeholder: 'Ik begrijp het'
+              if:
+                melding_tonen: 'equals true'
+  overig:
+    display: 'Zoekmachines & 404'
+    sections:
+      -
+        display: Zoekmachines
+        fields:
+          -
+            handle: seo_standaard_omschrijving
+            field:
+              type: textarea
+              display: 'Standaard meta-omschrijving'
+              instructions: 'Gebruikt op pagina''s zonder eigen omschrijving in het tabblad SEO.'
+              character_limit: 160
+          -
+            handle: seo_standaard_afbeelding
+            field:
+              type: assets
+              container: assets
+              max_files: 1
+              display: 'Standaard deelafbeelding'
+              instructions: 'Voor pagina''s zonder eigen afbeelding.'
+      -
+        display: 'Pagina niet gevonden (404)'
+        fields:
+          -
+            handle: niet_gevonden_titel
+            field:
+              type: text
+              display: Titel
+              placeholder: 'Pagina niet gevonden'
+          -
+            handle: niet_gevonden_tekst
+            field:
+              type: textarea
+              display: Tekst
+              placeholder: 'Sorry, de pagina die je zoekt bestaat niet (meer).'

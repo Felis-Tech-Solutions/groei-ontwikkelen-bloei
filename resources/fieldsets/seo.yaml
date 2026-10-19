@@ -23,3 +23,10 @@ fields:
       container: assets
       max_files: 1
       mode: grid
+  -
+    handle: seo_noindex
+    field:
+      type: toggle
+      display: 'Verbergen voor zoekmachines'
+      instructions: 'Zet aan als deze pagina niet in Google mag verschijnen (en niet in de sitemap).'
+      default: false

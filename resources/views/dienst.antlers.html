@@ -38,14 +38,13 @@
 
     {{ if dienst_hero_afbeelding }}
       {{ dienst_hero_afbeelding }}
-        <img
+        {{ partial:afbeelding
           class="aspect-[4/3] w-full rounded-2xl object-cover shadow-lg"
-          src="{{ url }}"
-          alt="{{ alt ?? dienst_titel ?? title }}"
-          width="{{ width }}"
-          height="{{ height }}"
+          :alt="alt ?? dienst_titel ?? title"
+          sizes="(min-width: 1024px) 600px, 100vw"
+          loading="eager"
           fetchpriority="high"
-        >
+        }}
       {{ /dienst_hero_afbeelding }}
     {{ /if }}
 
@@ -160,14 +159,7 @@
 
       {{ if dienst_tweede_afbeelding }}
         {{ dienst_tweede_afbeelding }}
-          <img
-            class="aspect-[4/3] w-full rounded-2xl object-cover shadow-lg"
-            src="{{ url }}"
-            alt="{{ alt ?? dienst_extra_titel }}"
-            width="{{ width }}"
-            height="{{ height }}"
-            loading="lazy"
-          >
+          {{ partial:afbeelding class="aspect-[4/3] w-full rounded-2xl object-cover shadow-lg" :alt="alt ?? dienst_extra_titel" sizes="(min-width: 1024px) 600px, 100vw" }}
         {{ /dienst_tweede_afbeelding }}
       {{ /if }}
 

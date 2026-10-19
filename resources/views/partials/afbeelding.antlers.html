@@ -1,0 +1,23 @@
+{{#
+  Responsieve afbeelding via Glide: kleinere WebP-varianten met srcset.
+
+  Gebruik binnen een asset-loop, bijvoorbeeld:
+    {{ hero_image }}
+      {{ partial:afbeelding class="w-full" sizes="(min-width: 1024px) 50vw, 100vw" }}
+    {{ /hero_image }}
+
+  Parameters: class, sizes (standaard 100vw), alt, loading (standaard lazy),
+  fetchpriority, max (grootste breedte, standaard 1600).
+#}}
+{{ maximaal = max ?? 1600 }}
+<img
+  src="{{ glide :src="url" width="1200" fit="max" format="webp" quality="80" }}"
+  srcset="{{ glide :src="url" width="480" fit="max" format="webp" quality="80" }} 480w, {{ glide :src="url" width="800" fit="max" format="webp" quality="80" }} 800w, {{ glide :src="url" width="1200" fit="max" format="webp" quality="80" }} 1200w{{ if maximaal >= 1600 }}, {{ glide :src="url" width="1600" fit="max" format="webp" quality="80" }} 1600w{{ /if }}"
+  sizes="{{ sizes ?? '100vw' }}"
+  alt="{{ alt }}"
+  class="{{ class }}"
+  {{ if width }}width="{{ width }}" height="{{ height }}"{{ /if }}
+  loading="{{ loading ?? 'lazy' }}"
+  decoding="async"
+  {{ if fetchpriority }}fetchpriority="{{ fetchpriority }}"{{ /if }}
+>
