@@ -1,0 +1,93 @@
+name: Deploy naar TransIP
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Proefdraai: alleen tonen wat er zou veranderen, niets uploaden'
+        type: boolean
+        default: true
+
+# Nooit twee deploys tegelijk.
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    # Bij een push naar master pas deployen als DEPLOY_ENABLED aan staat;
+    # handmatig starten (met proefdraai) kan altijd.
+    if: github.event_name == 'workflow_dispatch' || vars.DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+      PHP_BIN: ${{ vars.PHP_BIN || 'php' }}
+      SSH_PORT: ${{ vars.SSH_PORT || '22' }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ vars.PHP_VERSION || '8.3' }}
+          tools: composer:v2
+          coverage: none
+
+      - name: Composer-pakketten installeren
+        run: |
+          cp .env.example .env
+          composer install --no-dev --prefer-dist --no-interaction --no-progress --optimize-autoloader
+          rm .env
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: yarn
+
+      - name: Frontend bouwen
+        run: |
+          yarn install --frozen-lockfile
+          yarn build
+
+      - name: SSH instellen
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+
+      - name: Bestanden uploaden
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          flags=(--archive --compress --delete --itemize-changes --exclude-from=.github/deploy-exclude.txt)
+          if [ "$DRY_RUN" = "true" ]; then flags+=(--dry-run); fi
+          rsync "${flags[@]}" \
+            -e "ssh -i ~/.ssh/deploy_key -p $SSH_PORT" \
+            ./ "$SSH_USER@$SSH_HOST:${DEPLOY_PATH%/}/"
+
+      - name: Caches vernieuwen op de server
+        if: env.DRY_RUN != 'true'
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          ssh -i ~/.ssh/deploy_key -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" bash -s <<SCRIPT
+          set -e
+          cd "$DEPLOY_PATH"
+          $PHP_BIN artisan cache:clear
+          $PHP_BIN artisan config:cache
+          $PHP_BIN artisan route:cache
+          $PHP_BIN artisan view:clear
+          $PHP_BIN artisan statamic:stache:warm
+          $PHP_BIN artisan statamic:static:clear
+          SCRIPT
