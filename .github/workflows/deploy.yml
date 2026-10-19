@@ -58,9 +58,16 @@ jobs:
           SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
         run: |
           install -m 700 -d ~/.ssh
-          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+          # Windows-regeleinden en spaties aan het eind (van kopiëren/plakken) weghalen.
+          printf '%s\n' "$SSH_PRIVATE_KEY" | tr -d '\r' | sed 's/[[:space:]]*$//' > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          printf '%s\n' "$SSH_KNOWN_HOSTS" | tr -d '\r' > ~/.ssh/known_hosts
+          # Toont alleen de publieke vingerafdruk, zodat je kunt zien welke sleutel erin zit.
+          if ! ssh-keygen -y -f ~/.ssh/deploy_key > ~/.ssh/deploy_key.pub; then
+            echo "::error::SSH_PRIVATE_KEY is geen geldige privésleutel. Plak de volledige inhoud van het sleutelbestand (zonder .pub), inclusief de BEGIN- en END-regel."
+            exit 1
+          fi
+          ssh-keygen -lf ~/.ssh/deploy_key.pub
 
       - name: Bestanden uploaden
         env:
