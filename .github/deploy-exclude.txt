@@ -15,6 +15,11 @@
 /public/storage
 /public/.user.ini
 
+# Bestanden die alleen op de server in www staan
+/Bureaublad
+/Bureaublad.pub
+/git stash drop
+
 # Alleen nodig voor ontwikkeling
 /.git/
 /.github/

@@ -44,19 +44,18 @@ Haal de vingerafdruk van de server op (vul je eigen SSH-host in):
 ssh-keyscan JOUW-SSH-HOST
 ```
 
-### 2. Uitzoeken waar de site op de server staat
+### 2. Waar de site op de server staat
 
-Log in via SSH en kijk welke map de site serveert. Bij TransIP-webhosting is dat meestal
-`www`. De Laravel-map (met `artisan`) moet buiten `www` staan, met `www` als verwijzing
-naar de `public`-map. Bijvoorbeeld:
+De site draait op `groek0.ssh.transip.me` (gebruiker `groeiontwikkelenbloeinl`):
 
 ```text
-~/groei-app/          <- DEPLOY_PATH (hier staan artisan, content/, .env, ...)
-~/www -> groei-app/public
+~/www/                <- DEPLOY_PATH (hier staan artisan, content/, .env, ...)
+~/www/public/         <- wordt door TransIP als website geserveerd
 ```
 
-Staat de site nu anders opgezet? Gebruik dan de map waar `artisan` nu in staat als
-`DEPLOY_PATH`.
+`~/www` was eerder een git-checkout die met `git pull` werd bijgewerkt. Doe dat niet meer
+zodra de workflow aan staat: rsync is dan de enige manier om code bij te werken. Live
+content-wijzigingen zie je daar dus in `git status` als gewijzigde bestanden; dat is normaal.
 
 Controleer ook dat op de server een `.env` staat met in elk geval `APP_ENV=production`,
 `APP_DEBUG=false`, een `APP_KEY` en de juiste `APP_URL`.
