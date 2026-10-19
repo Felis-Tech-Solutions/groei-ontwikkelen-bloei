@@ -6,11 +6,6 @@ tabs:
       -
         fields:
           -
-            handle: subtitel_tekst
-            field:
-              type: text
-              display: 'Subtitel tekst'
-          -
             handle: title
             field:
               type: text
@@ -19,6 +14,229 @@ tabs:
               validate:
                 - required
               display: 'Titel pagina'
+          -
+            handle: subtitel_tekst
+            field:
+              type: text
+              display: 'Subtitel tekst'
+              width: 50
+      -
+        display: Header
+        instructions: 'De grote blauwe kop bovenaan de pagina.'
+        fields:
+          -
+            handle: header_title
+            field:
+              type: text
+              display: 'Header titel'
+              width: 50
+          -
+            handle: contact_button
+            field:
+              type: text
+              display: 'Knoptekst'
+              default: 'Boek nu'
+              width: 50
+          -
+            handle: header_tekst
+            field:
+              type: textarea
+              display: 'Header tekst'
+          -
+            handle: hero_image
+            field:
+              type: assets
+              container: assets
+              max_files: 1
+              display: 'Header afbeelding'
+      -
+        display: Introductie
+        instructions: 'Leeg laten toont de standaardtekst.'
+        fields:
+          -
+            handle: intro_bovenregel
+            field:
+              type: text
+              display: 'Kleine bovenregel'
+              placeholder: 'Over ons'
+              width: 50
+          -
+            handle: intro_titel
+            field:
+              type: text
+              display: Titel
+              placeholder: 'Een veilige ruimte voor herstel, groei en balans'
+              width: 50
+          -
+            handle: intro_tekst
+            field:
+              type: textarea
+              display: Tekst
+      -
+        display: Missie
+        instructions: 'Leeg laten toont de standaardtekst.'
+        fields:
+          -
+            handle: missie_bovenregel
+            field:
+              type: text
+              display: 'Kleine bovenregel'
+              placeholder: 'Mijn missie'
+              width: 50
+          -
+            handle: missie_titel
+            field:
+              type: text
+              display: Titel
+              width: 50
+          -
+            handle: missie_tekst
+            field:
+              type: textarea
+              display: Tekst
+          -
+            handle: waarom_bovenregel
+            field:
+              type: text
+              display: 'Blok: kleine bovenregel'
+              placeholder: 'Waarom paardencoaching?'
+              width: 50
+          -
+            handle: waarom_titel
+            field:
+              type: text
+              display: 'Blok: titel'
+              width: 50
+          -
+            handle: waarom_tekst
+            field:
+              type: textarea
+              display: 'Blok: tekst'
+      -
+        display: Aanpak
+        instructions: 'Leeg laten toont de standaardtekst.'
+        fields:
+          -
+            handle: aanpak_bovenregel
+            field:
+              type: text
+              display: 'Kleine bovenregel'
+              placeholder: 'Mijn aanpak'
+              width: 50
+          -
+            handle: aanpak_titel
+            field:
+              type: text
+              display: Titel
+              width: 50
+          -
+            handle: aanpak_punten
+            field:
+              type: grid
+              display: Kernwaarden
+              mode: stacked
+              add_row: 'Kernwaarde toevoegen'
+              fields:
+                -
+                  handle: titel
+                  field:
+                    type: text
+                    display: Titel
+                -
+                  handle: tekst
+                  field:
+                    type: textarea
+                    display: Tekst
+      -
+        display: Paarden
+        instructions: 'Leeg laten toont de standaardtekst.'
+        fields:
+          -
+            handle: paarden_bovenregel
+            field:
+              type: text
+              display: 'Kleine bovenregel'
+              placeholder: 'Mijn paarden'
+              width: 50
+          -
+            handle: paarden_titel
+            field:
+              type: text
+              display: Titel
+              width: 50
+          -
+            handle: paarden
+            field:
+              type: grid
+              display: Paarden
+              mode: stacked
+              add_row: 'Paard toevoegen'
+              fields:
+                -
+                  handle: naam
+                  field:
+                    type: text
+                    display: Naam
+                    width: 50
+                -
+                  handle: kenmerk
+                  field:
+                    type: text
+                    display: 'Kenmerk (korte regel)'
+                    width: 50
+                -
+                  handle: tekst
+                  field:
+                    type: textarea
+                    display: Tekst
+                -
+                  handle: foto
+                  field:
+                    type: assets
+                    container: assets
+                    max_files: 1
+                    display: Foto
+      -
+        display: Afsluiting
+        instructions: 'Het blauwe blok onderaan. Leeg laten toont de standaardtekst.'
+        fields:
+          -
+            handle: afsluiting_bovenregel
+            field:
+              type: text
+              display: 'Kleine bovenregel'
+              placeholder: Praktijk
+              width: 50
+          -
+            handle: afsluiting_titel
+            field:
+              type: text
+              display: Titel
+              width: 50
+          -
+            handle: afsluiting_tekst
+            field:
+              type: textarea
+              display: Tekst
+          -
+            handle: afsluiting_knoptekst
+            field:
+              type: text
+              display: Knoptekst
+              placeholder: 'Neem contact op'
+              width: 50
+          -
+            handle: afsluiting_knoplink
+            field:
+              type: link
+              display: Knoplink
+              collections:
+                - pages
+              width: 50
+      -
+        display: 'Oude tekst'
+        instructions: 'Wordt niet meer op de pagina getoond.'
+        fields:
           -
             handle: over_ons_tekst
             field:
@@ -45,3 +263,11 @@ tabs:
               max_items: 1
               listable: false
               localizable: true
+  seo:
+    display: SEO
+    sections:
+      -
+        display: Zoekmachines
+        fields:
+          -
+            import: seo

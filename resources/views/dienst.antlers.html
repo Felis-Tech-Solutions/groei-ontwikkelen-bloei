@@ -207,7 +207,7 @@
 
     <div class="md:text-right">
       <a
-        href="{{ dienst_cta_link ?? '/contact' }}"
+        href="{{ if dienst_cta_link }}{{ dienst_cta_link }}{{ else }}/contact{{ /if }}"
         class="inline-flex rounded-md bg-pink-300 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:opacity-90"
       >
         {{ dienst_cta_knoptekst ?? 'Neem contact op' }}

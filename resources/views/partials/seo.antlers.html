@@ -1,0 +1,33 @@
+{{#
+  Titel, meta-omschrijving en deelgegevens. Gebruikt de velden uit het tabblad SEO;
+  zijn die leeg, dan de paginatitel en de intro van een dienst of een standaardtekst.
+#}}
+{{ if seo_titel }}
+  {{ pagina_titel = seo_titel }}
+{{ else }}
+  {{ pagina_titel = title }}
+{{ /if }}
+
+{{ if seo_beschrijving }}
+  {{ omschrijving = seo_beschrijving }}
+{{ elseif dienst_intro }}
+  {{ omschrijving = dienst_intro | strip_tags }}
+{{ else }}
+  {{ omschrijving = 'Paardencoaching bij rouw en verlies, burn-out en persoonlijke groei. Een veilige ruimte voor herstel, groei en balans.' }}
+{{ /if }}
+
+<title>{{ if pagina_titel && segment_1 }}{{ pagina_titel }} | {{ /if }}{{ site:name }}</title>
+<meta name="description" content="{{ omschrijving | trim | safe_truncate(160) | entities }}">
+<link rel="canonical" href="{{ current_url }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site:name | entities }}">
+<meta property="og:title" content="{{ if pagina_titel }}{{ pagina_titel | entities }}{{ else }}{{ site:name | entities }}{{ /if }}">
+<meta property="og:description" content="{{ omschrijving | trim | safe_truncate(200) | entities }}">
+<meta property="og:url" content="{{ current_url }}">
+{{ if seo_afbeelding }}
+  {{ seo_afbeelding }}<meta property="og:image" content="{{ permalink }}">{{ /seo_afbeelding }}
+{{ elseif hero_image }}
+  {{ hero_image }}<meta property="og:image" content="{{ permalink }}">{{ /hero_image }}
+{{ elseif dienst_hero_afbeelding }}
+  {{ dienst_hero_afbeelding }}<meta property="og:image" content="{{ permalink }}">{{ /dienst_hero_afbeelding }}
+{{ /if }}

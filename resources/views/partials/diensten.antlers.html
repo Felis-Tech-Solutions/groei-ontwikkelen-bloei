@@ -345,12 +345,11 @@
       </div>
 
 
-      {{ if cta_knop_link }}
-
+      {{# Zonder ingevulde link gaat de knop naar de contactpagina. #}}
         <div class="md:text-right">
 
           <a
-            href="{{ cta_knop_link }}"
+            href="{{ if cta_knop_link }}{{ cta_knop_link }}{{ else }}/contact{{ /if }}"
             class="inline-flex items-center rounded-md bg-pink-300 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
           >
             {{ cta_knop_tekst ?? 'Neem contact op' }}
@@ -361,8 +360,6 @@
           </a>
 
         </div>
-
-      {{ /if }}
 
     </div>
 

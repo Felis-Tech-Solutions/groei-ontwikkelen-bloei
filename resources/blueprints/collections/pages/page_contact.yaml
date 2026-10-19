@@ -39,3 +39,11 @@ tabs:
               max_items: 1
               listable: false
               localizable: true
+  seo:
+    display: SEO
+    sections:
+      -
+        display: Zoekmachines
+        fields:
+          -
+            import: seo

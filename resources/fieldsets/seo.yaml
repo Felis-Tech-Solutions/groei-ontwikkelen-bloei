@@ -1,0 +1,25 @@
+title: SEO
+fields:
+  -
+    handle: seo_titel
+    field:
+      type: text
+      display: SEO-titel
+      instructions: 'Laat leeg om de paginatitel te gebruiken.'
+      character_limit: 60
+  -
+    handle: seo_beschrijving
+    field:
+      type: textarea
+      display: Meta-omschrijving
+      instructions: 'Korte samenvatting van de pagina (maximaal ongeveer 155 tekens). Zoekmachines tonen deze onder de titel.'
+      character_limit: 160
+  -
+    handle: seo_afbeelding
+    field:
+      type: assets
+      display: Deelafbeelding
+      instructions: 'Afbeelding voor delen via sociale media.'
+      container: assets
+      max_files: 1
+      mode: grid
