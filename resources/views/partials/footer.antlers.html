@@ -118,9 +118,14 @@
                     {{ /if }}
                 {{ /footer:socials }}
             </div>
-            <p class="mt-6 text-base leading-6 text-gray-600">
-                © {{ now format="Y" }} {{ footer:copyright_name | replace('. Alle rechten voorbehouden.', '') }}. Alle rechten voorbehouden.
-            </p>
+            <div class="mt-6 md:mt-0">
+                <p class="text-base leading-6 text-gray-600">
+                    © {{ now format="Y" }} {{ footer:copyright_name | replace('. Alle rechten voorbehouden.', '') }}. Alle rechten voorbehouden.
+                </p>
+                <p class="mt-1 text-sm leading-6 text-gray-500">
+                    Website door <a href="https://dkdesigns.nl/case-studies/groeiontwikkelenbloei/" target="_blank" rel="noopener" class="underline decoration-gray-300 underline-offset-2 hover:text-gray-900">DK Designs</a>
+                </p>
+            </div>
         </div>
     </div>
 </footer>
